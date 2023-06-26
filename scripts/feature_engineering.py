@@ -14,6 +14,9 @@ def generate_features(data, feature_columns, stats):
         # Get the player's data
         player_df = data[data["Player"] == player].copy()
 
+        # Shift all the features by 1
+        player_df[feature_columns] = player_df[feature_columns].shift(1)
+
         # For each feature
         for feature in feature_columns:
             # Check if the column is numeric
@@ -21,24 +24,21 @@ def generate_features(data, feature_columns, stats):
                 # Calculate the statistics
                 for stat in stats:
                     if stat == "mean":
-                        player_df[f"{feature}_historical_mean"] = player_df[feature].expanding().mean().shift()
+                        player_df[f"{feature}_historical_mean"] = player_df[feature].expanding().mean()
                     elif stat == "median":
-                        player_df[f"{feature}_historical_median"] = player_df[feature].expanding().median().shift()
+                        player_df[f"{feature}_historical_median"] = player_df[feature].expanding().median()
                     elif stat == "std":
-                        player_df[f"{feature}_historical_std"] = player_df[feature].expanding().std().shift()
+                        player_df[f"{feature}_historical_std"] = player_df[feature].expanding().std()
 
         # Add the player's data to the final DataFrame
         historical_df = pd.concat([historical_df, player_df])
 
-    # Now, we only keep the historical features and the target 'SO_y'
-    historical_features = [col for col in historical_df.columns if "historical" in col]
-    historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y"]]
+    # Keep all the features, the historical features, and the target 'SO_y'
+    all_features = [col for col in historical_df.columns]
+    historical_df = historical_df[all_features]
 
     # Drop rows with missing values
     historical_df.dropna(axis=0, how="any", inplace=True)
-
-    # Reordering columns
-    historical_df = historical_df[["Player", "Date", "Team", "GameID", "SO_y"] + historical_features]
 
     return historical_df
 
