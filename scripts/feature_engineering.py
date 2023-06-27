@@ -33,12 +33,15 @@ def generate_features(data, feature_columns, stats):
         # Add the player's data to the final DataFrame
         historical_df = pd.concat([historical_df, player_df])
 
-    # Keep all the features, the historical features, and the target 'SO_y'
-    all_features = [col for col in historical_df.columns]
-    historical_df = historical_df[all_features]
+    # Now, we only keep the historical features and the target 'SO_y'
+    historical_features = [col for col in historical_df.columns if "historical" in col]
+    historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y"]]
 
     # Drop rows with missing values
     historical_df.dropna(axis=0, how="any", inplace=True)
+
+    # Reordering columns
+    historical_df = historical_df[["Player", "Date", "Team", "GameID", "SO_y"] + historical_features]
 
     return historical_df
 

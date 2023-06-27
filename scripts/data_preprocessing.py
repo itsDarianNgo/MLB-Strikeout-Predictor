@@ -43,12 +43,20 @@ def clean_data(batting_data, pitching_data, game_data):
     game_data["Date"] = pd.to_datetime(game_data["Date"], format="%B %d, %Y")
     game_data.sort_values(by="Date", inplace=True)
 
-    # Keep only the rows in pitching_data where both IR and IS are blank
-    pitching_data = pitching_data[pitching_data["IR"].isna() & pitching_data["IS"].isna()]
-
     # Fill in any missing values in batting_data and pitching_data
     batting_data.fillna(value=0, inplace=True)
-    pitching_data.fillna(value=0, inplace=True)
+
+    # Filter only rows where 'IR' and 'IS' are NaN in pitching_data
+    pitching_data = pitching_data[pitching_data["IR"].isna() & pitching_data["IS"].isna()]
+
+    # Remove '%s' from 'WPA_y' and 'cWPA_y' columns and convert them to numeric in both batting and pitching data
+    for data in [batting_data, pitching_data]:
+        for col in ["cWPA", "WPA-"]:
+            if col in data.columns:
+                data[col] = data[col].str.strip().str.replace("[^\d.]", "", regex=True)
+                data[col] = pd.to_numeric(data[col], errors="coerce")
+
+        data.fillna(value=0, inplace=True)
 
     # Drop the 'details' column from batting_data
     if "Details" in batting_data.columns:

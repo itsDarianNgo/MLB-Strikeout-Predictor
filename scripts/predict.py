@@ -39,7 +39,7 @@ def load_data():
 def load_model():
     """Load the trained H2O model."""
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    model_path = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_8_20230626_22735")
+    model_path = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_11_20230626_43345")
     return h2o.load_model(model_path)
 
 
