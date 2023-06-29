@@ -73,8 +73,10 @@ def calculate_yearly_avg_SO(player_df):
 
 
 def prepare_final_df(historical_df):
-    historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col or col == "Yearly_Avg_SO_y"]
-    historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team"]]
+    historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col]
+    historical_df = historical_df[
+        historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team", "Yearly_Avg_SO_y"]
+    ]
 
     historical_df.dropna(axis=0, how="any", inplace=True)
     historical_df = historical_df[
