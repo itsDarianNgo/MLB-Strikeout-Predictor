@@ -62,26 +62,45 @@ def calculate_SO_y_stats(player_df):
     return player_df
 
 
+def calculate_yearly_avg_SO(player_df):
+    """Calculate average strikeouts (SO_y) per year for a player."""
+    # Extract year from 'Date' column
+    player_df["Year"] = pd.DatetimeIndex(player_df["Date"]).year
+    # Calculate yearly average strikeouts (SO_y)
+    yearly_avg_SO_y = player_df.groupby(["Player", "Year"])["SO_y"].transform("mean")
+    player_df = player_df.assign(Yearly_Avg_SO_y=yearly_avg_SO_y)
+    return player_df
+
+
 def prepare_final_df(historical_df):
-    """Prepare final DataFrame, including only required features and handling missing values."""
-    historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col]
+    historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col or col == "Yearly_Avg_SO_y"]
     historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team"]]
+
     historical_df.dropna(axis=0, how="any", inplace=True)
-    historical_df = historical_df[["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team"] + historical_features]
+    historical_df = historical_df[
+        ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team", "Yearly_Avg_SO_y"] + historical_features
+    ]
     return historical_df
 
 
 def generate_features(data, feature_columns, stats):
-    """Generate features for the data."""
     historical_df = pd.DataFrame()
-    recent_game_stats = ["Pit_y", "SO_y", "H_x", "H_y", "BB_x", "BB_y", "HR", "ER"]
+
+    # These are the features you calculated for recent games in your original code
+    recent_game_features = ["Pit_y", "SO_y", "H_x", "H_y", "BB_x", "BB_y", "HR", "ER"]
 
     for player in data["Player"].unique():
-        player_df = get_player_data(data, player)
+        player_df = data[data["Player"] == player].copy()
+        player_df.sort_values("Date", inplace=True)
+        player_df["Opp"] = np.where(player_df["Team"] == player_df["home_team"], player_df["away_team"], player_df["home_team"])
+
+        # Shift all the features by 1
         player_df[feature_columns] = player_df[feature_columns].shift(1)
-        player_df = calculate_recent_games_stats(player_df, recent_game_stats)
+
+        player_df = calculate_recent_games_stats(player_df, recent_game_features)
         player_df = calculate_historical_stats(player_df, feature_columns, stats)
         player_df = calculate_SO_y_stats(player_df)
+        player_df = calculate_yearly_avg_SO(player_df)
         historical_df = pd.concat([historical_df, player_df])
 
     historical_df = prepare_final_df(historical_df)
