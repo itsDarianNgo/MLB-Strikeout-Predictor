@@ -1,58 +1,98 @@
 import pandas as pd
-from data_preprocessing import load_data, clean_data, merge_data, save_final_data
 import numpy as np
+from data_preprocessing import load_data, clean_data, merge_data, save_final_data
+
+
+def get_player_data(data, player):
+    """Get and sort player's data."""
+    player_df = data[data["Player"] == player].copy()
+    player_df.sort_values("Date", inplace=True)
+    player_df["Opp"] = np.where(player_df["Team"] == player_df["home_team"], player_df["away_team"], player_df["home_team"])
+    return player_df
+
+
+def calculate_recent_games_stats(player_df, features):
+    """Calculate recent games statistics for given features."""
+    for feature in features:
+        for i in range(1, 6):  # For last 5 games
+            player_df[f"{feature}_game_{i}"] = player_df[feature].shift(i)
+    return player_df
+
+
+def calculate_historical_stats(player_df, feature_columns, stats):
+    """Calculate historical statistics for the given features."""
+    stats_df_list = []
+
+    for feature in feature_columns:
+        if np.issubdtype(player_df[feature].dtype, np.number):
+            feature_stats = {}
+            for stat in stats:
+                if stat == "mean":
+                    feature_stats[f"{feature}_historical_mean"] = player_df[feature].expanding().mean()
+                elif stat == "median":
+                    feature_stats[f"{feature}_historical_median"] = player_df[feature].expanding().median()
+                elif stat == "std":
+                    feature_stats[f"{feature}_historical_std"] = player_df[feature].expanding().std()
+                elif stat == "max":
+                    feature_stats[f"{feature}_historical_max"] = player_df[feature].expanding().max()
+                elif stat == "min":
+                    feature_stats[f"{feature}_historical_min"] = player_df[feature].expanding().min()
+            stats_df = pd.DataFrame(feature_stats)
+            stats_df_list.append(stats_df)
+    final_stats_df = pd.concat(stats_df_list, axis=1)
+    player_df = pd.concat([player_df, final_stats_df], axis=1)
+    return player_df
+
+
+def calculate_SO_y_stats(player_df):
+    """Calculate cumulative sum of SO_y and mean of SO_y per team."""
+    SO_y_stats = {}
+
+    # Calculate the cumulative sum of SO_y
+    SO_y_stats["SO_y_cumsum"] = player_df["SO_y"].cumsum()
+
+    # Add performance against specific teams
+    grouped_SO_y = player_df.groupby("Opp")["SO_y"].apply(lambda group: group.shift().expanding().mean())
+    grouped_SO_y = grouped_SO_y.reset_index(level="Opp", drop=True)
+    SO_y_stats["SO_y_mean_vs_team"] = grouped_SO_y
+
+    SO_y_stats_df = pd.DataFrame(SO_y_stats)
+    player_df = pd.concat([player_df, SO_y_stats_df], axis=1)
+
+    return player_df
+
+
+def prepare_final_df(historical_df):
+    """Prepare final DataFrame, including only required features and handling missing values."""
+    historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col]
+    historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team"]]
+    historical_df.dropna(axis=0, how="any", inplace=True)
+    historical_df = historical_df[["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team"] + historical_features]
+    return historical_df
 
 
 def generate_features(data, feature_columns, stats):
-    """Generates features for the data."""
-
-    # Initialize an empty DataFrame to store the final data
+    """Generate features for the data."""
     historical_df = pd.DataFrame()
+    recent_game_stats = ["Pit_y", "SO_y", "H_x", "H_y", "BB_x", "BB_y", "HR", "ER"]
 
-    # For each player in the data
     for player in data["Player"].unique():
-        # Get the player's data
-        player_df = data[data["Player"] == player].copy()
-
-        # Shift all the features by 1
+        player_df = get_player_data(data, player)
         player_df[feature_columns] = player_df[feature_columns].shift(1)
-
-        # For each feature
-        for feature in feature_columns:
-            # Check if the column is numeric
-            if np.issubdtype(player_df[feature].dtype, np.number):
-                # Calculate the statistics
-                for stat in stats:
-                    if stat == "mean":
-                        player_df[f"{feature}_historical_mean"] = player_df[feature].expanding().mean()
-                    elif stat == "median":
-                        player_df[f"{feature}_historical_median"] = player_df[feature].expanding().median()
-                    elif stat == "std":
-                        player_df[f"{feature}_historical_std"] = player_df[feature].expanding().std()
-
-        # Add the player's data to the final DataFrame
+        player_df = calculate_recent_games_stats(player_df, recent_game_stats)
+        player_df = calculate_historical_stats(player_df, feature_columns, stats)
+        player_df = calculate_SO_y_stats(player_df)
         historical_df = pd.concat([historical_df, player_df])
 
-    # Now, we only keep the historical features and the target 'SO_y'
-    historical_features = [col for col in historical_df.columns if "historical" in col]
-    historical_df = historical_df[historical_features + ["Player", "Date", "Team", "GameID", "SO_y"]]
-
-    # Drop rows with missing values
-    historical_df.dropna(axis=0, how="any", inplace=True)
-
-    # Reordering columns
-    historical_df = historical_df[["Player", "Date", "Team", "GameID", "SO_y"] + historical_features]
-
+    historical_df = prepare_final_df(historical_df)
     return historical_df
 
 
 def main():
-    # Load, clean, and merge the data
     batting_data, pitching_data, game_data = load_data()
     batting_data, pitching_data, game_data = clean_data(batting_data, pitching_data, game_data)
     final_data = merge_data(batting_data, pitching_data, game_data)
 
-    # Specify the features and statistics you want to calculate
     feature_columns = [
         "AB",
         "R_x",
@@ -103,12 +143,9 @@ def main():
         "acLI_y",
         "RE24_y",
     ]
-    stats = ["mean"]  # Add any other statistics you want to calculate here
+    stats = ["mean", "median", "std"]
 
-    # Generate the features
     final_data = generate_features(final_data, feature_columns, stats)
-
-    # Save the final data
     save_final_data(final_data)
 
 

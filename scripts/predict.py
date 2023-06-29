@@ -39,7 +39,7 @@ def load_data():
 def load_model():
     """Load the trained H2O model."""
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    model_path = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_11_20230626_43345")
+    model_path = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_3_20230628_22344")
     return h2o.load_model(model_path)
 
 
@@ -133,10 +133,6 @@ def main():
     # Save the dataframe to a csv file
     results.to_csv("predictions.csv", index=False)
     print("Predictions saved to predictions.csv")
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
