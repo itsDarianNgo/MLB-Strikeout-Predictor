@@ -32,6 +32,12 @@ def generate_features(data):
     # Drop rows with missing values
     historical_df.dropna(axis=0, how="any", inplace=True)
 
+    # Reorder columns
+    cols = historical_df.columns.tolist()
+    cols.insert(1, cols.pop(cols.index("SO_y")))
+    cols.insert(2, cols.pop(cols.index("Avg_SO_per_year")))
+    historical_df = historical_df[cols]
+
     return historical_df
 
 
