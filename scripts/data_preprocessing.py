@@ -11,21 +11,32 @@ def load_data():
     pitching_data_dir = os.path.join(script_dir, "../data/PitchingData/")
     game_data_dir = os.path.join(script_dir, "../data/GameData/")
 
+    # Define the list of columns to drop
+    columns_to_drop = ["aLI", "RE24"]
+
     # Load and concatenate the data from all CSV files in each directory
     batting_data = pd.concat(
-        [pd.read_csv(os.path.join(batting_data_dir, file), encoding="ISO-8859-1") for file in os.listdir(batting_data_dir) if file.endswith(".csv")],
+        [
+            pd.read_csv(os.path.join(batting_data_dir, file), encoding="ISO-8859-1").drop(columns=columns_to_drop, errors="ignore")
+            for file in os.listdir(batting_data_dir)
+            if file.endswith(".csv")
+        ],
         ignore_index=True,
     )
     pitching_data = pd.concat(
         [
-            pd.read_csv(os.path.join(pitching_data_dir, file), encoding="ISO-8859-1")
+            pd.read_csv(os.path.join(pitching_data_dir, file), encoding="ISO-8859-1").drop(columns=columns_to_drop, errors="ignore")
             for file in os.listdir(pitching_data_dir)
             if file.endswith(".csv")
         ],
         ignore_index=True,
     )
     game_data = pd.concat(
-        [pd.read_csv(os.path.join(game_data_dir, file), encoding="ISO-8859-1") for file in os.listdir(game_data_dir) if file.endswith(".csv")],
+        [
+            pd.read_csv(os.path.join(game_data_dir, file), encoding="ISO-8859-1").drop(columns=columns_to_drop, errors="ignore")
+            for file in os.listdir(game_data_dir)
+            if file.endswith(".csv")
+        ],
         ignore_index=True,
     )
 
@@ -46,15 +57,15 @@ def clean_data(batting_data, pitching_data, game_data):
     # Fill in any missing values in batting_data and pitching_data
     batting_data.fillna(value=0, inplace=True)
 
-    # Filter only rows where 'IR' and 'IS' are NaN in pitching_data
+    # Keep only the rows in pitching_data where both IR and IS are blank
     pitching_data = pitching_data[pitching_data["IR"].isna() & pitching_data["IS"].isna()]
 
     # Remove '%s' from 'WPA_y' and 'cWPA_y' columns and convert them to numeric in both batting and pitching data
     for data in [batting_data, pitching_data]:
         for col in ["cWPA", "WPA-"]:
             if col in data.columns:
-                data[col] = data[col].str.strip().str.replace("[^\d.]", "", regex=True)
-                data[col] = pd.to_numeric(data[col], errors="coerce")
+                data.loc[:, col] = data[col].str.strip().str.replace("[^\d.]", "", regex=True)
+                data.loc[:, col] = pd.to_numeric(data[col], errors="coerce")
 
         data.fillna(value=0, inplace=True)
 
