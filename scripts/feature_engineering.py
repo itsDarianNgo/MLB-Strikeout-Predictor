@@ -44,22 +44,30 @@ def calculate_historical_stats(player_df, feature_columns, stats):
     return player_df
 
 
-def calculate_SO_y_stats(player_df):
-    """Calculate cumulative sum of SO_y and mean of SO_y per team."""
-    SO_y_stats = {}
+def calculate_average_strikeouts_vs_team(player_df):
+    # Sort the dataframe by Player and Date
+    player_df = player_df.sort_values(["Player", "Date"])
 
-    # Calculate the cumulative sum of SO_y
-    SO_y_stats["SO_y_cumsum"] = player_df["SO_y"].cumsum()
+    # Group dataframe by Player and Opp, then apply calculations
+    player_df = player_df.groupby(["Player", "Opp"]).apply(lambda df: calculate_avg_strikeouts(df)).reset_index(drop=True)
 
-    # Add performance against specific teams
-    grouped_SO_y = player_df.groupby("Opp")["SO_y"].apply(lambda group: group.shift().expanding().mean())
-    grouped_SO_y = grouped_SO_y.reset_index(level="Opp", drop=True)
-    SO_y_stats["SO_y_mean_vs_team"] = grouped_SO_y
-
-    SO_y_stats_df = pd.DataFrame(SO_y_stats)
-    player_df = pd.concat([player_df, SO_y_stats_df], axis=1)
+    # Fill -1 for any other missing values in the dataframe
+    player_df.fillna(-1, inplace=True)
 
     return player_df
+
+
+def calculate_avg_strikeouts(df):
+    df["cumulative_strikeouts"] = df["SO_y"].shift().cumsum()
+    df["cumulative_games"] = np.arange(len(df))
+
+    # Calculate average strikeouts
+    df["average_strikeouts_vs_team"] = df["cumulative_strikeouts"] / df["cumulative_games"]
+
+    # Replace NaN values with zero for the first game of each player against each team
+    df["average_strikeouts_vs_team"].fillna(0, inplace=True)
+
+    return df
 
 
 def calculate_yearly_avg_SO(player_df):
@@ -75,12 +83,12 @@ def calculate_yearly_avg_SO(player_df):
 def prepare_final_df(historical_df):
     historical_features = [col for col in historical_df.columns if "historical" in col or "game" in col]
     historical_df = historical_df[
-        historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team", "Yearly_Avg_SO_y"]
+        historical_features + ["Player", "Date", "Team", "GameID", "SO_y", "average_strikeouts_vs_team", "Opp", "Yearly_Avg_SO_y"]
     ]
 
     historical_df.dropna(axis=0, how="any", inplace=True)
     historical_df = historical_df[
-        ["Player", "Date", "Team", "GameID", "SO_y", "SO_y_cumsum", "SO_y_mean_vs_team", "Yearly_Avg_SO_y"] + historical_features
+        ["Player", "Date", "Team", "GameID", "SO_y", "average_strikeouts_vs_team", "Opp", "Yearly_Avg_SO_y"] + historical_features
     ]
     return historical_df
 
@@ -101,7 +109,7 @@ def generate_features(data, feature_columns, stats):
 
         player_df = calculate_recent_games_stats(player_df, recent_game_features)
         player_df = calculate_historical_stats(player_df, feature_columns, stats)
-        player_df = calculate_SO_y_stats(player_df)
+        player_df = calculate_average_strikeouts_vs_team(player_df)
         player_df = calculate_yearly_avg_SO(player_df)
         historical_df = pd.concat([historical_df, player_df])
 
