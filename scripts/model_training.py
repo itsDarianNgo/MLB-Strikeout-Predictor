@@ -48,7 +48,7 @@ def main():
     test = final_data_h2o[split_index:, :]
 
     # Initialize the H2O AutoML model
-    aml = H2OAutoML(max_models=2, seed=1, max_runtime_secs=1200)
+    aml = H2OAutoML(max_models=4, seed=1, max_runtime_secs=1200)
 
     # Train the model
     aml.train(x=predictors, y=target, training_frame=train)

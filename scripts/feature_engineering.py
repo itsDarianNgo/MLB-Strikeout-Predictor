@@ -126,14 +126,38 @@ def calculate_recent_performance_trend(player_data, games=5):
     return player_data
 
 
+def generate_opposing_team(data):
+    """Generate opposing team for each player in each game."""
+    data["Opposing_Team"] = data.apply(lambda row: row["home_team"] if row["Team"] != row["home_team"] else row["away_team"], axis=1)
+    return data
+
+
+def generate_pitcher_performance_against_teams(player_data):
+    """Generate average strikeouts against each team for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Create an expanding window mean, grouping by the opposing team
+    player_data["Avg_SO_vs_Team"] = player_data.groupby("Opposing_Team")["SO_y"].expanding(min_periods=1).mean().reset_index(level=0, drop=True)
+
+    # Shift the data to avoid data leakage
+    player_data["Avg_SO_vs_Team"] = player_data.groupby("Opposing_Team")["Avg_SO_vs_Team"].shift()
+
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
+
+    # Generate the Opposing_Team column
+    data = generate_opposing_team(data)
+
     players = data["Player"].unique()
 
     player_dfs = []
     for player in players:
         player_data = data[data["Player"] == player].copy()
         player_data = generate_rolling_avg_SO(player_data)
+        player_data = generate_pitcher_performance_against_teams(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_data = calculate_recent_performance_trend(player_data, games=5)
