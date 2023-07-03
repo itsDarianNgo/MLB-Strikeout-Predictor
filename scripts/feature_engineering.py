@@ -89,6 +89,16 @@ def generate_rolling_avg_StS(player_data, window=10):
     return player_data
 
 
+def generate_rolling_avg_Str(player_data, window=10):
+    """Generate rolling average strikes for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Create a new column with the rolling mean
+    player_data["Avg_Str_Rolling"] = player_data["Str_y"].rolling(window=window, min_periods=1).mean().shift()
+
+    return player_data
+
+
 def generate_lagged_features(player_data):
     """Generate lagged features for a single player."""
     player_data.sort_values(by="Date", inplace=True)
@@ -184,6 +194,7 @@ def generate_features(data):
         player_data = data[data["Player"] == player].copy()
         player_data = generate_rolling_avg_SO(player_data)
         player_data = generate_rolling_avg_StS(player_data)
+        player_data = generate_rolling_avg_Str(player_data)
         player_data = generate_pitcher_performance_against_teams(player_data)
         player_data = generate_pitcher_fatigue(player_data)
         player_data = generate_lagged_features(player_data)
