@@ -67,6 +67,16 @@ def calculate_cumulative_average_strikeouts(player_data):
     return player_data
 
 
+def generate_rolling_avg_SO(player_data, window=10):
+    """Generate rolling average strikeouts for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Create a new column with the rolling mean
+    player_data["Avg_SO_Rolling"] = player_data["SO_y"].rolling(window=window, min_periods=1).mean().shift()
+
+    return player_data
+
+
 def generate_lagged_features(player_data):
     """Generate lagged features for a single player."""
     player_data.sort_values(by="Date", inplace=True)
@@ -92,6 +102,7 @@ def generate_features(data):
     player_dfs = []
     for player in players:
         player_data = data[data["Player"] == player].copy()
+        player_data = generate_rolling_avg_SO(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_dfs.append(player_data)
