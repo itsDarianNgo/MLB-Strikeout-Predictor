@@ -1,5 +1,7 @@
 import pandas as pd
 from data_preprocessing import load_data, clean_data, merge_data, save_final_data
+from sklearn.linear_model import LinearRegression
+import numpy as np
 
 LAG_COLUMNS = [
     "SO_y",
@@ -95,6 +97,35 @@ def generate_lagged_features(player_data):
     return player_data
 
 
+def calculate_recent_performance_trend(player_data, games=5):
+    """Calculate recent performance trend for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Initialize a linear regression model
+    model = LinearRegression()
+
+    # Prepare an array to hold the trends
+    trends = np.zeros(len(player_data))
+
+    for i in range(games, len(player_data)):
+        # Extract the target values from the last games games
+        y = player_data.iloc[i - games : i]["SO_y"].values.reshape(-1, 1)
+
+        # Prepare an array of game numbers to use as our feature
+        X = np.array(range(games)).reshape(-1, 1)
+
+        # Fit the linear regression model
+        model.fit(X, y)
+
+        # The slope of the line is in model.coef_
+        trends[i] = model.coef_[0][0]
+
+    # Add the trends to the player_data DataFrame
+    player_data["Recent_Performance_Trend"] = trends
+
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
     players = data["Player"].unique()
@@ -105,6 +136,7 @@ def generate_features(data):
         player_data = generate_rolling_avg_SO(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
+        player_data = calculate_recent_performance_trend(player_data, games=5)
         player_dfs.append(player_data)
 
     # Combine all player data
