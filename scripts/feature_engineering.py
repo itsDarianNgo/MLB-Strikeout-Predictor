@@ -145,6 +145,22 @@ def generate_pitcher_performance_against_teams(player_data):
     return player_data
 
 
+def generate_pitcher_fatigue(player_data):
+    """Generate a pitcher fatigue feature for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Convert the Date column to datetime format if it's not already
+    player_data["Date"] = pd.to_datetime(player_data["Date"])
+
+    # Calculate the difference in days between consecutive games
+    player_data["Days_Since_Last_Game"] = player_data["Date"].diff().dt.days
+
+    # Fill the NaN values (for the first game) with 0
+    player_data["Days_Since_Last_Game"].fillna(0, inplace=True)
+
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
 
@@ -158,6 +174,7 @@ def generate_features(data):
         player_data = data[data["Player"] == player].copy()
         player_data = generate_rolling_avg_SO(player_data)
         player_data = generate_pitcher_performance_against_teams(player_data)
+        player_data = generate_pitcher_fatigue(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_data = calculate_recent_performance_trend(player_data, games=5)
