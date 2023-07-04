@@ -181,6 +181,25 @@ def generate_pitcher_fatigue(player_data):
     return player_data
 
 
+def generate_KBB_ratio(player_data):
+    """Generate the lagged K/BB ratio for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # To avoid division by zero, add a small constant to the denominator
+    player_data["BB_y_shifted"] = player_data["BB_y"].shift() + 1e-10
+
+    player_data["SO_y_shifted"] = player_data["SO_y"].shift()
+    player_data["K/BB_lag"] = player_data["SO_y_shifted"].cumsum() / player_data["BB_y_shifted"].cumsum()
+
+    # Fill NaN values with 0
+    player_data.fillna(0, inplace=True)
+
+    # Drop auxiliary columns
+    player_data.drop(columns=["BB_y_shifted", "SO_y_shifted"], inplace=True)
+
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
 
@@ -197,6 +216,7 @@ def generate_features(data):
         player_data = generate_rolling_avg_Str(player_data)
         player_data = generate_pitcher_performance_against_teams(player_data)
         player_data = generate_pitcher_fatigue(player_data)
+        player_data = generate_KBB_ratio(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_data = calculate_recent_performance_trend(player_data, games=5)
