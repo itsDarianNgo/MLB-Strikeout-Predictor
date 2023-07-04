@@ -102,13 +102,16 @@ def generate_rolling_avg_Str(player_data, window=10):
 def generate_lagged_features(player_data):
     """Generate lagged features for a single player."""
     player_data.sort_values(by="Date", inplace=True)
+
+    # Create lagged columns
     for column in LAG_COLUMNS:
         player_data[f"{column}_lag"] = player_data[column].shift()
 
-    # Define columns to drop (all lag columns except target)
-    columns_to_drop = [col for col in LAG_COLUMNS if col != "SO_y"]
+    # Add FIP to the lagged columns
+    player_data["FIP_lag"] = player_data["FIP"].shift()
 
-    # Drop original columns excluding the target
+    # Drop original columns but keep SO_y, the target variable
+    columns_to_drop = [col for col in LAG_COLUMNS if col != "SO_y"] + ["FIP"]
     player_data.drop(columns=columns_to_drop, inplace=True)
 
     # Fill NaN values with 0
@@ -200,6 +203,12 @@ def generate_KBB_ratio(player_data):
     return player_data
 
 
+def calculate_fip(player_data):
+    """Calculate the Fielding Independent Pitching (FIP) for a single player."""
+    player_data["FIP"] = ((13 * player_data["HR"]) + (3 * (player_data["BB_y"])) - (2 * player_data["SO_y"])) / player_data["IP"] + 3.2
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
 
@@ -217,6 +226,7 @@ def generate_features(data):
         player_data = generate_pitcher_performance_against_teams(player_data)
         player_data = generate_pitcher_fatigue(player_data)
         player_data = generate_KBB_ratio(player_data)
+        player_data = calculate_fip(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_data = calculate_recent_performance_trend(player_data, games=5)
