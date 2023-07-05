@@ -151,7 +151,12 @@ def calculate_recent_performance_trend(player_data, games=5):
 
 def generate_opposing_team(data):
     """Generate opposing team for each player in each game."""
-    data["Opposing_Team"] = data.apply(lambda row: row["home_team"] if row["Team"] != row["home_team"] else row["away_team"], axis=1)
+    data["Team"] = data["Team"].reset_index(drop=True)
+    data["home_team"] = data["home_team"].reset_index(drop=True)
+    data["away_team"] = data["away_team"].reset_index(drop=True)
+    data.loc[data["Team"] != data["home_team"], "Opposing_Team"] = data["home_team"]
+    data.loc[data["Team"] == data["home_team"], "Opposing_Team"] = data["away_team"]
+
     return data
 
 

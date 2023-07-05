@@ -1,12 +1,18 @@
-import h2o
 import pandas as pd
-from feature_engineering import generate_features
-from data_preprocessing import clean_data, merge_data
 import os
+import h2o
+from data_preprocessing import clean_data, merge_data
+from feature_engineering import generate_features, drop_unnecessary_columns
+
+# Initialize the H2O environment
+h2o.init()
+
+# Define the path to your model
+script_dir = os.path.dirname(os.path.realpath(__file__))
+MODEL_PATH = os.path.join(script_dir, "../model_output/StackedEnsemble_AllModels_1_AutoML_6_20230704_55344")
 
 
-def load_data():
-    """Load the dataset from CSV files."""
+def load_new_data():
     # Get the absolute path of the directory the script is in
     script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -15,123 +21,55 @@ def load_data():
     pitching_data_dir = os.path.join(script_dir, "../data/new/PitchingData/")
     game_data_dir = os.path.join(script_dir, "../data/new/GameData/")
 
-    # Load and concatenate the data from all CSV files in each directory
+    # Load the data
     batting_data = pd.concat(
-        [pd.read_csv(os.path.join(batting_data_dir, file), encoding="ISO-8859-1") for file in os.listdir(batting_data_dir) if file.endswith(".csv")],
-        ignore_index=True,
+        [pd.read_csv(os.path.join(batting_data_dir, f), encoding="ISO-8859-1") for f in os.listdir(batting_data_dir)], ignore_index=True
     )
     pitching_data = pd.concat(
-        [
-            pd.read_csv(os.path.join(pitching_data_dir, file), encoding="ISO-8859-1")
-            for file in os.listdir(pitching_data_dir)
-            if file.endswith(".csv")
-        ],
-        ignore_index=True,
+        [pd.read_csv(os.path.join(pitching_data_dir, f), encoding="ISO-8859-1") for f in os.listdir(pitching_data_dir)], ignore_index=True
     )
-    game_data = pd.concat(
-        [pd.read_csv(os.path.join(game_data_dir, file), encoding="ISO-8859-1") for file in os.listdir(game_data_dir) if file.endswith(".csv")],
-        ignore_index=True,
-    )
+    game_data = pd.concat([pd.read_csv(os.path.join(game_data_dir, f), encoding="ISO-8859-1") for f in os.listdir(game_data_dir)], ignore_index=True)
 
-    return batting_data, pitching_data, game_data
-
-
-def load_model():
-    """Load the trained H2O model."""
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    model_path = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_3_20230628_22344")
-    return h2o.load_model(model_path)
-
-
-def prepare_data(data):
-    """Prepare the data for prediction."""
-    batting_data, pitching_data, game_data = data
+    # Clean the data
     batting_data, pitching_data, game_data = clean_data(batting_data, pitching_data, game_data)
-    final_data = merge_data(batting_data, pitching_data, game_data)
 
-    feature_columns = [
-        "AB",
-        "R_x",
-        "H_x",
-        "RBI",
-        "BB_x",
-        "SO_x",
-        "PA",
-        "BA",
-        "OBP",
-        "SLG",
-        "OPS",
-        "Pit_x",
-        "Str_x",
-        "WPA_x",
-        "aLI_x",
-        "WPA+",
-        "WPA-",
-        "cWPA_x",
-        "acLI_x",
-        "RE24_x",
-        "PO",
-        "A",
-        "IP",
-        "H_y",
-        "R_y",
-        "ER",
-        "BB_y",
-        "SO_y",
-        "HR",
-        "ERA",
-        "BF",
-        "Pit_y",
-        "Str_y",
-        "Ctct",
-        "StS",
-        "StL",
-        "GB",
-        "FB",
-        "LD",
-        "Unk",
-        "GSc",
-        "IR",
-        "IS",
-        "WPA_y",
-        "aLI_y",
-        "cWPA_y",
-        "acLI_y",
-        "RE24_y",
-    ]
-    stats = ["mean"]  # as used in feature_engineering.py
+    # Merge the datasets
+    new_data = merge_data(batting_data, pitching_data, game_data)
 
-    final_data = generate_features(final_data, feature_columns, stats)
-
-    return h2o.H2OFrame(final_data)
-
-
-def predict_strikeouts(model, data):
-    """Predict the number of strikeouts."""
-    predictions = model.predict(data)
-    return predictions
+    return new_data
 
 
 def main():
-    h2o.init()
+    # Load new data
+    new_data = load_new_data()
 
-    # load the model
-    model = load_model()
+    # Load model
+    model = h2o.load_model(MODEL_PATH)
 
-    # prepare the data
-    data = load_data()
-    h2o_data = prepare_data(data)
-    original_data = h2o_data.as_data_frame()  # save the original data with actual values
+    # Drop unnecessary columns
+    new_data = drop_unnecessary_columns(new_data)
 
-    # make predictions
-    predictions = predict_strikeouts(model, h2o_data)
-    predictions_df = predictions.as_data_frame()  # convert predictions to pandas dataframe
+    # Generate the features
+    new_data = generate_features(new_data)
 
-    # Join the original data with the predictions
-    results = original_data.join(predictions_df)
+    # Convert the preprocessed new_data to H2O Frame
+    new_data_h2o = h2o.H2OFrame(new_data)
+
+    # Define the predictors
+    predictors = new_data_h2o.columns
+    predictors.remove("SO_y")  # Assuming 'SO_y' is the target variable
+
+    # Predict on the new data
+    preds = model.predict(new_data_h2o)
+
+    # Convert the H2O frame to a pandas dataframe
+    preds = preds.as_data_frame()
+
+    # Concatenate the actual target variable and the predictions
+    final_preds = pd.concat([new_data.reset_index(drop=True), preds.reset_index(drop=True)], axis=1)
 
     # Save the dataframe to a csv file
-    results.to_csv("predictions.csv", index=False)
+    final_preds.to_csv("predictions.csv", index=False)
     print("Predictions saved to predictions.csv")
 
 
