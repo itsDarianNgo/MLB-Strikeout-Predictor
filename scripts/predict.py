@@ -9,7 +9,7 @@ h2o.init()
 
 # Define the path to your model
 script_dir = os.path.dirname(os.path.realpath(__file__))
-MODEL_PATH = os.path.join(script_dir, "../model_output/StackedEnsemble_AllModels_1_AutoML_6_20230704_55344")
+MODEL_PATH = os.path.join(script_dir, "../model_output/StackedEnsemble_BestOfFamily_1_AutoML_4_20230705_53623")
 
 
 def load_new_data():
@@ -57,7 +57,7 @@ def main():
 
     # Define the predictors
     predictors = new_data_h2o.columns
-    predictors.remove("SO_y")  # Assuming 'SO_y' is the target variable
+    predictors.remove("SO_y")
 
     # Predict on the new data
     preds = model.predict(new_data_h2o)
@@ -65,12 +65,18 @@ def main():
     # Convert the H2O frame to a pandas dataframe
     preds = preds.as_data_frame()
 
+    # Rename the column of predictions in preds dataframe to 'predictedStrikeouts'
+    preds.rename(columns={preds.columns[0]: "predictedStrikeouts"}, inplace=True)
+
     # Concatenate the actual target variable and the predictions
-    final_preds = pd.concat([new_data.reset_index(drop=True), preds.reset_index(drop=True)], axis=1)
+    final_preds = pd.concat([new_data[["Date", "Player", "SO_y"]].reset_index(drop=True), preds.reset_index(drop=True)], axis=1)
+
+    # Define the path for saving the csv file
+    predictions_file_path = os.path.join(script_dir, "../data/predictions.csv")
 
     # Save the dataframe to a csv file
-    final_preds.to_csv("predictions.csv", index=False)
-    print("Predictions saved to predictions.csv")
+    final_preds.to_csv(predictions_file_path, index=False)
+    print(f"Predictions saved to {predictions_file_path}")
 
 
 if __name__ == "__main__":

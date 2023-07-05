@@ -20,8 +20,6 @@ LAG_COLUMNS = [
     "Str_x",
     "WPA_x",
     "WPA+",
-    "WPA-",
-    "cWPA_x",
     "acLI_x",
     "PO",
     "A",
@@ -46,7 +44,6 @@ LAG_COLUMNS = [
     "IR",
     "IS",
     "WPA_y",
-    "cWPA_y",
     "acLI_y",
 ]
 

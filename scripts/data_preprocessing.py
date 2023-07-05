@@ -12,7 +12,7 @@ def load_data():
     game_data_dir = os.path.join(script_dir, "../data/GameData/")
 
     # Define the list of columns to drop
-    columns_to_drop = ["aLI", "RE24"]
+    columns_to_drop = ["aLI", "RE24", "cWPA", "WPA-"]
 
     # Load and concatenate the data from all CSV files in each directory
     batting_data = pd.concat(
@@ -63,7 +63,7 @@ def clean_data(batting_data, pitching_data, game_data):
     # Remove '%s' from 'WPA_y' and 'cWPA_y' columns and convert them to numeric in both batting and pitching data
     for data in [batting_data, pitching_data]:
         for col in ["cWPA", "WPA-"]:
-            if col in data.columns:
+            if col in data.columns and pd.api.types.is_string_dtype(data[col]):
                 data.loc[:, col] = data[col].str.strip().str.replace("[^\d.]", "", regex=True)
                 data.loc[:, col] = pd.to_numeric(data[col], errors="coerce")
 
