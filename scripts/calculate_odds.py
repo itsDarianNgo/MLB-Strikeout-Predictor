@@ -28,6 +28,28 @@ def save_data(df, filename):
     df.to_csv(filename, index=False)
 
 
+# Adjust betting decision based on threshold
+def adjust_decision(row, threshold):
+    if row["predictedStrikeouts"] > row["prop"] * (1 + threshold):
+        return "Over"
+    elif row["predictedStrikeouts"] < row["prop"] * (1 - threshold):
+        return "Under"
+    else:
+        return "Hold"
+
+
+# Function to check if the bet was successful
+def check_bet(row):
+    if row["Bet"] == "Over" and row["SO_y"] > row["prop"]:
+        return "Yes"
+    elif row["Bet"] == "Under" and row["SO_y"] < row["prop"]:
+        return "Yes"
+    elif row["Bet"] == "Hold":
+        return "Hold"
+    else:
+        return "No"
+
+
 # Main function
 def main():
     # Get script directory
@@ -46,20 +68,17 @@ def main():
     # Calculate odds
     data["OverOdds"], data["UnderOdds"] = zip(*data.apply(lambda row: calculate_odds(row["predictedStrikeouts"], row["prop"]), axis=1))
 
-    # Determine whether to bet on over or under
-    data["Bet"] = data.apply(lambda row: "Over" if row["predictedStrikeouts"] > row["prop"] else "Under", axis=1)
+    # Determine whether to bet on over, under or hold
+    data["Bet"] = data.apply(lambda row: adjust_decision(row, threshold=0.05), axis=1)
 
     # Check if the bet was successful
-    data["SuccessfulBet"] = data.apply(
-        lambda row: "Yes" if (row["Bet"] == "Over" and row["SO_y"] > row["prop"]) or (row["Bet"] == "Under" and row["SO_y"] < row["prop"]) else "No",
-        axis=1,
-    )
+    data["SuccessfulBet"] = data.apply(check_bet, axis=1)
 
     # Save the results
     save_data(data, os.path.join(data_dir, "predicted_odds.csv"))
 
     # Calculate accuracy
-    accuracy = (data["SuccessfulBet"] == "Yes").mean()
+    accuracy = (data[data["SuccessfulBet"] != "Hold"]["SuccessfulBet"] == "Yes").mean()
     print(f"Accuracy: {accuracy * 100:.2f}%")
 
 
