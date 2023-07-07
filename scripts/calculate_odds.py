@@ -65,59 +65,46 @@ def decide_bet_type(row):
         return "Under", row["UnderOdds"]
 
 
-# Adjusting pair_pitchers to use BestBetType and BestBetOdds
-def pair_pitchers(df):
-    df_sorted = df.sort_values(by="BestBetOdds", ascending=False)
-    players = df_sorted["Player"].tolist()
-    pairs = [(players[i], players[i + 1]) for i in range(0, len(players) - 1, 2)]
-    return pairs
+# Adjusted to select top six pitchers based on the best odds
+def select_top_six_pitchers(df):
+    return df.sort_values("BestBetOdds", ascending=False).drop_duplicates("Player").head(6)
 
 
-def pair_pitchers_and_create_rows(df):
-    paired_data = []
+# Adjusted to work with six pitchers
+def create_rows_for_six_pitchers(df):
+    grouped_data = []
     for date, df_date in df.groupby("Date"):
-        pairs = pair_pitchers(df_date)
-        for pair in pairs:
-            row1 = df_date[df_date["Player"] == pair[0]].iloc[0].to_dict()
-            row2 = df_date[df_date["Player"] == pair[1]].iloc[0].to_dict()
+        top_six_pitchers = select_top_six_pitchers(df_date)
+        if len(top_six_pitchers) == 6:
             row = {}
+            for i, (index, pitcher_row) in enumerate(top_six_pitchers.iterrows()):
+                row[f"Player{i+1}"] = pitcher_row["Player"]
+                row[f"SO_y{i+1}"] = pitcher_row["SO_y"]
+                row[f"predictedStrikeouts{i+1}"] = pitcher_row["predictedStrikeouts"]
+                row[f"prop{i+1}"] = pitcher_row["prop"]
+                row[f"Bet{i+1}"] = pitcher_row["Bet"]
+                row[f"SuccessfulBet{i+1}"] = pitcher_row["SuccessfulBet"]
             row["Date"] = date
-            row["Player1"] = pair[0]
-            row["Player2"] = pair[1]
-            row["SO_y1"] = row1["SO_y"]
-            row["SO_y2"] = row2["SO_y"]
-            row["predictedStrikeouts1"] = row1["predictedStrikeouts"]
-            row["predictedStrikeouts2"] = row2["predictedStrikeouts"]
-            row["prop1"] = row1["prop"]
-            row["prop2"] = row2["prop"]
-            row["Bet1"] = row1["Bet"]
-            row["Bet2"] = row2["Bet"]
-            row["SuccessfulBet1"] = row1["SuccessfulBet"]
-            row["SuccessfulBet2"] = row2["SuccessfulBet"]
             row["BetAmount"] = 5  # Since each parlay bet is always $5
-            paired_data.append(row)
-    return pd.DataFrame(paired_data), pairs
+            grouped_data.append(row)
+    return pd.DataFrame(grouped_data)
 
 
-# Function to check if the parlay was successful
-def check_parlay(df):
-    if (df["SuccessfulBet"] == "Yes").all():
-        return "Yes"
-    elif (df["SuccessfulBet"] == "No").any():
-        return "No"
-    else:
-        return "Hold"
-
-
+# Adjusted for new payout rules
 def calculate_outcome(row):
-    successful_bets = [row["SuccessfulBet1"], row["SuccessfulBet2"]]
-    if successful_bets.count("Yes") == 2:
-        return 10  # Net gain of $10 when both bets are successful
+    successful_bets = [row[f"SuccessfulBet{i+1}"] for i in range(6)]
+    successful_bet_count = successful_bets.count("Yes")
+    if successful_bet_count == 6:
+        return 120  # Net gain of $120 when all bets are successful
+    elif successful_bet_count == 5:
+        return 5  # Net gain of $5 when 5 bets are successful
+    elif successful_bet_count == 4:
+        return -3  # Net loss of $3 when 4 bets are successful
     else:
-        return -5  # Lose the initial $5 if any bet is unsuccessful
+        return -5  # Lose the initial $5 if 3 or fewer bets are successful
 
 
-# Main function
+# Adjusted main function
 def main():
     script_dir = os.path.dirname(os.path.realpath(__file__))
     data_dir = os.path.join(script_dir, "../data/")
@@ -132,23 +119,23 @@ def main():
     data["SuccessfulBet"] = data.apply(check_bet, axis=1)
 
     # Select top predictions and avoid 'hold' decisions
-    data = data.groupby("Date").apply(select_top_predictions).reset_index(drop=True)
+    data = data[data["Bet"] != "Hold"].groupby("Date").apply(select_top_six_pitchers).reset_index(drop=True)
 
-    # Pair pitchers and create rows
-    paired_data, _ = pair_pitchers_and_create_rows(data)
-    paired_data["Outcome"] = paired_data.apply(calculate_outcome, axis=1)
-    total_profit_loss = paired_data["Outcome"].sum()
+    # Create rows for six pitchers
+    grouped_data = create_rows_for_six_pitchers(data)
+    grouped_data["Outcome"] = grouped_data.apply(calculate_outcome, axis=1)
+    total_profit_loss = grouped_data["Outcome"].sum()
     print(f"Total profit/loss: {total_profit_loss}")
 
-    # Calculate parlay accuracy
-    paired_data["SuccessfulParlay"] = paired_data.apply(
-        lambda row: "Yes" if row["SuccessfulBet1"] == "Yes" and row["SuccessfulBet2"] == "Yes" else "No", axis=1
+    # Calculate accuracy
+    grouped_data["SuccessfulParlay"] = grouped_data.apply(
+        lambda row: "Yes" if sum([row[f"SuccessfulBet{i+1}"] == "Yes" for i in range(6)]) >= 4 else "No", axis=1
     )
-    accuracy = (paired_data["SuccessfulParlay"] == "Yes").mean()
+    accuracy = (grouped_data["SuccessfulParlay"] == "Yes").mean()
     print(f"Parlay accuracy: {accuracy * 100:.2f}%")
 
     # Save the data
-    save_data(paired_data, os.path.join(data_dir, "predicted_odds.csv"))
+    save_data(grouped_data, os.path.join(data_dir, "predicted_odds.csv"))
 
 
 if __name__ == "__main__":

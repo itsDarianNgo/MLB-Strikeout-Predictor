@@ -1,294 +1,35 @@
-Date,Player1,Player2,SO_y1,SO_y2,predictedStrikeouts1,predictedStrikeouts2,prop1,prop2,Bet1,Bet2,SuccessfulBet1,SuccessfulBet2,BetAmount,Outcome,SuccessfulParlay
-2023-05-09,Shohei Ohtani,Andrew Heaney,7,7,7.2555165726152255,5.198933721670856,7.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-09,Framber Valdez,Lucas Giolito,12,9,5.0699593553659295,4.5560249560609964,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-09,Clarke Schmidt,Grayson Rodriguez,7,4,4.513633820054189,4.445108967781384,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-09,Eric Lauer,George Kirby,4,9,4.413830216710606,4.032913569455769,5.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-09,Aaron Nola,Jack Flaherty,6,3,4.010229385827815,3.9905245394252384,5.5,6.5,Under,Under,No,Yes,5,-5,No
-2023-05-09,Alek Manoah,Shane Bieber,1,9,3.9891800077080455,3.9656627086602505,5.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-09,Michael Wacha,Patrick Corbin,4,3,3.913703658088164,3.66697623887776,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-09,Michael Lorenzen,Drew Rucinski,3,2,3.229248313338671,3.032643546528688,3.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-09,Luis Ortiz,Louie Varland,1,6,2.6657835041313844,6.332590486280173,4.5,4.5,Under,Over,Yes,Yes,5,10,Yes
-2023-05-09,Logan Webb,Zach Eflin,7,4,5.781679196646386,5.76720077612843,5.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-05-09,Luke Weaver,Nick Pivetta,2,2,5.7020665519337,5.214469766028574,4.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-10,Clayton Kershaw,Zack Wheeler,8,7,7.109837720049494,5.836611937407116,7.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-10,Justin Verlander,Cristian Javier,7,11,4.966630264093607,4.759483586848788,6.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-10,Jordan Montgomery,Justin Steele,3,3,4.696345620828088,4.585497651640339,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-10,Rich Hill,Sean Manaea,4,4,4.551800262433934,4.333473825176912,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-10,Brayan Bello,Seth Lugo,5,5,4.100880049091386,4.024798926382132,4.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-10,Josiah Gray,Griffin Canning,3,3,3.853746038976304,3.725091177215069,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-10,Wade Miley,Dean Kremer,3,4,3.640248510860456,3.576807311524857,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-10,Jhony Brito,Antonio Senzatela,3,1,3.3695781653444974,3.283864152100587,4.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-10,Kevin Gausman,Hunter Greene,9,4,7.223720476758887,6.770360979030338,6.5,5.5,Over,Over,Yes,No,5,-5,No
-2023-05-10,Lance Lynn,Edward Cabrera,4,5,5.952630831942568,5.787290901863062,5.5,5.5,Over,Over,No,No,5,-5,No
-2023-05-10,Merrill Kelly,Peyton Battenfield,6,4,5.752476324286661,5.325042616301989,5.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-05-11,Yu Darvish,Mike Clevinger,7,2,5.1402967390471925,4.228859303373117,6.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-11,Brady Singer,Bailey Ober,4,6,3.758360002967496,6.145601970893191,4.5,4.5,Under,Over,Yes,Yes,5,10,Yes
-2023-05-11,Drew Rasmussen,Alex Cobb,7,3,5.792015621350547,5.203922739657561,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-05-12,Spencer Strider,Sonny Gray,12,9,7.067412054139812,5.652543326881983,8.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-12,Blake Snell,Ken Waldichuk,4,5,5.5854244368024455,4.400066768779659,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-12,Corbin Burnes,Logan Allen,7,5,4.382810282654225,4.204153309362115,6.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-12,Drew Smyly,Marco Gonzales,4,2,4.0077757508192375,3.4383972511560885,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-12,Austin Gomber,Adam Wainwright,6,2,3.2339459941612967,3.1595814808309832,3.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-12,James Paxton,MacKenzie Gore,9,3,2.7205679576258954,7.238543190638388,4.5,5.5,Under,Over,No,No,5,-5,No
-2023-05-12,Michael Kopech,Graham Ashcraft,5,3,4.872194784282892,4.8099389989278025,4.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-12,Chris Bassitt,J.P. France,8,3,4.688617343011128,4.676779696898984,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-05-12,Tyler Anderson,Taijuan Walker,1,3,4.592337542383376,3.963729193747027,3.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-13,Joe Ryan,Chris Sale,10,9,5.81391000781645,5.632083838885048,7.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-13,Shane McClanahan,Bryce Miller,3,3,5.625879556522341,5.106755296214629,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-13,Reid Detmers,Joe Musgrove,3,5,4.890838964700438,4.630411920821352,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-13,Jon Gray,Bryce Elder,5,3,4.449197841130987,4.347197720114988,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-13,Roansy Contreras,Joey Lucchesi,1,0,3.926699057434759,3.365353228972725,4.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-13,Ryan Feltner,Steven Matz,0,4,3.362782167443116,3.2644081594488914,3.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-13,Brandon Bielak,Hayden Wesneski,4,5,3.114201311146784,3.1137336409107963,3.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-13,Alex Faedo,Cal Quantrill,7,2,2.9666272164519665,2.9186598124231806,3.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-13,Nestor Cortes,Anthony DeSclafani,3,2,5.1873399557466,4.460256897763688,4.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-13,Zack Greinke,Adrian Houser,5,2,3.8149183825636688,3.806454656917919,3.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-14,Logan Gilbert,Clarke Schmidt,4,5,5.275035025321141,5.207517915767666,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-14,Andrew Heaney,Marcus Stroman,9,3,5.124553365527488,4.564444507341173,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-14,Tony Gonsolin,Yusei Kikuchi,6,7,4.153023628440327,4.148696391990293,4.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-14,Max Scherzer,Corey Kluber,6,5,4.075367180546198,3.981033847441416,5.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-14,Aaron Nola,Joey Wentz,4,3,3.824380550574926,3.814865587490925,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-14,Brandon Pfaadt,Patrick Sandoval,5,5,3.6712436460882416,3.364018555806509,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-14,Tanner Bibee,Logan Webb,7,3,3.2717598370744256,6.786561506115629,5.5,5.5,Under,Over,No,No,5,-5,No
-2023-05-14,Lucas Giolito,Mitch Keller,6,13,6.24699158703203,6.170087355001931,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-14,Louie Varland,Zach Eflin,7,9,6.072944963220719,4.885983426305038,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-14,Hunter Brown,Kyle Gibson,8,5,4.815297309952218,4.712100808186992,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-15,Shohei Ohtani,Hunter Greene,5,8,6.428958520694744,5.22811049951692,7.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-15,Freddy Peralta,Charlie Morton,4,10,5.133652917517024,4.82299174940886,5.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-15,Jack Flaherty,Merrill Kelly,10,9,4.745901009307897,4.6000964141133736,5.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-15,David Peterson,Grayson Rodriguez,5,3,4.450912375184673,4.083803955845376,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-15,George Kirby,Michael Wacha,6,11,4.060185401973002,3.930106199699295,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-15,Alek Manoah,Connor Seabold,3,3,3.566207526267537,3.1330393860932326,4.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-15,Framber Valdez,Brad Keller,8,2,7.349490117871422,4.139785287362389,6.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-16,Cristian Javier,Clayton Kershaw,5,7,7.259994925268803,7.190542471730579,7.5,7.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-16,Kevin Gausman,Zack Wheeler,10,8,7.1108694709010045,6.036152036408814,7.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-16,Justin Verlander,Luis Castillo,3,6,5.646829111410173,5.292509407241735,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-16,Jordan Montgomery,Nick Pivetta,7,6,5.207313339462977,5.092899492447747,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-16,Alex Cobb,Seth Lugo,3,2,4.842879858699044,4.447698066436575,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-16,Josiah Gray,Dean Kremer,5,4,4.044610128917033,3.4470275953932243,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-16,Luis Ortiz,Justin Steele,3,8,3.136799914898853,4.930044580516281,4.5,4.5,Under,Over,Yes,Yes,5,10,Yes
-2023-05-16,Brady Singer,Bailey Ober,3,6,4.715448567597788,4.703845187509098,4.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-05-17,Spencer Strider,MacKenzie Gore,7,7,7.045926992403261,5.949848584469472,9.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-17,Gerrit Cole,Edward Cabrera,6,6,5.310518282486026,4.7825889958013175,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-17,Brayan Bello,Chris Bassitt,7,7,4.77447004039896,4.647165665712365,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-17,J.P. France,Griffin Canning,2,4,4.4672344640694295,4.342327697224227,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-17,Taijuan Walker,Peyton Battenfield,1,2,4.22684994340376,4.214769799428286,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-17,Rich Hill,Kyle Bradish,7,5,3.898980387027783,3.878106169398616,4.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-17,Dustin May,Mike Clevinger,2,5,3.864985816172876,3.805957443567413,5.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-17,Ryne Nelson,Marco Gonzales,6,1,3.4552523010610794,2.825016029652097,4.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-17,Nathan Eovaldi,Sonny Gray,5,4,6.711986664217818,6.204438869266295,6.5,5.5,Over,Over,No,No,5,-5,No
-2023-05-17,Eduardo Rodriguez,Kodai Senga,5,12,6.122993305663939,5.757327005040296,5.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-05-17,Luis Medina,Drew Smyly,6,8,4.878371358396217,4.558050573046446,3.5,3.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-18,Dylan Cease,Tyler Wells,3,7,4.722662945386071,4.566825649577463,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-18,Tylor Megill,Tyler Anderson,4,2,4.173562455978404,4.167077868125291,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-18,Nestor Cortes,Trevor Williams,6,5,4.092876872074711,3.2390470643626394,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-19,Shane McClanahan,Joe Ryan,7,9,6.6088558069005,5.754142266474373,7.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-19,Blake Snell,Yusei Kikuchi,5,3,5.419393199965317,5.220911081850198,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-19,Reid Detmers,Bryce Elder,12,6,5.1719516362451134,5.137636208327881,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-19,Clarke Schmidt,Michael Kopech,6,10,4.95790466464344,4.8436170919541786,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-19,Sandy Alcantara,Steven Matz,5,6,4.563604832800869,4.304974257717939,6.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-19,Anthony DeSclafani,Kyle Gibson,6,5,4.303932064588312,4.085935077322853,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-19,Tony Gonsolin,Brandon Bielak,3,9,3.5784181278652487,3.400994497891568,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-19,Cal Quantrill,Karl Kauffmann,6,4,3.185603103689882,3.0951198915965947,3.5,3.5,Under,Under,No,No,5,-5,No
-2023-05-19,James Paxton,Bryce Miller,5,4,6.7668569251422985,5.364030789209269,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-19,Jake Irvin,Zack Greinke,1,4,4.7196780883506335,4.213185686122976,4.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-05-19,Ken Waldichuk,Adrian Houser,3,4,4.155773732400202,3.6255781063349137,3.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-05-20,Hunter Brown,Louie Varland,9,4,5.459149056746248,5.177677278184563,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-20,Patrick Sandoval,Joe Musgrove,3,6,4.815519244558004,4.524365278999367,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-20,Aaron Nola,Jon Gray,10,6,4.423992125644562,4.362122216184946,6.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-20,Brandon Pfaadt,Miles Mikolas,3,2,4.265140165595395,4.2290687668351445,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-20,Jordan Lyles,Braxton Garrett,5,8,4.035390377368256,3.854192436750669,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-20,Lucas Giolito,Mitch Keller,4,8,6.835596948686757,6.8287393840286414,6.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-05-20,Chris Sale,Logan Webb,8,7,6.1951604535974525,5.938118204942311,5.5,5.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-20,JP Sears,Alek Manoah,7,5,5.24597493533262,4.684677742898465,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-20,Jameson Taillon,Alex Faedo,1,4,4.676111442482171,4.36108694260592,3.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-05-21,Shohei Ohtani,Framber Valdez,9,7,7.893459654395365,6.307878403494771,8.5,7.5,Under,Under,No,Yes,5,-5,No
-2023-05-21,Hunter Greene,Clayton Kershaw,10,6,6.100180866130927,6.028368544997313,6.5,6.5,Under,Under,No,Yes,5,-5,No
-2023-05-21,Andrew Heaney,Josiah Gray,5,2,5.495386323766574,4.906157679492737,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-21,Justin Steele,Jared Shuster,6,7,4.743981987536478,3.8074962309552887,5.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-21,Joey Wentz,Taijuan Walker,1,3,3.74295202671392,3.7290045762375104,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-21,Dean Kremer,Luis Severino,7,5,3.640175751307112,3.6105137776214935,4.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-21,Connor Seabold,Kevin Gausman,5,4,3.0313506214079133,7.752070619183101,3.5,6.5,Under,Over,No,No,5,-5,No
-2023-05-21,Jack Flaherty,Max Scherzer,5,5,6.301057852961249,6.007707428567937,5.5,5.5,Over,Over,No,No,5,-5,No
-2023-05-21,Merrill Kelly,Michael Wacha,4,4,5.8575425974212605,5.227096198888107,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-21,Tanner Bibee,Corey Kluber,3,1,5.101948560379357,4.89920195675496,4.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-21,George Kirby,James Kaprielian,6,5,4.885168686391372,4.868776175592432,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-22,Luis Castillo,Charlie Morton,8,5,7.173386021298504,5.99501733652537,7.5,6.5,Under,Under,No,Yes,5,-5,No
-2023-05-22,Jordan Montgomery,Corbin Burnes,4,5,5.058199462884795,4.823388982321983,5.5,6.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-22,Brady Singer,Dane Dunning,3,3,4.183224284102277,3.953979787564697,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-22,Luis Ortiz,Kyle Muller,4,3,3.867756280128091,3.656716408539391,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-22,Tommy Henry,Gavin Stone,5,1,3.280921274025505,3.08158372612226,4.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-22,Zack Wheeler,Bailey Ober,3,2,6.977506203636793,5.765652563265354,6.5,5.5,Over,Over,No,No,5,-5,No
-2023-05-22,Brandon Williamson,Chris Bassitt,3,4,5.16400322433443,4.974092685689381,4.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-22,Tanner Houck,Edward Cabrera,8,6,4.840310710055411,4.815681602572725,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-23,Spencer Strider,Gerrit Cole,11,2,7.311683466699555,7.188187225791052,8.5,7.5,Under,Under,No,Yes,5,-5,No
-2023-05-23,Sonny Gray,Brayan Bello,6,6,5.644013559075541,5.188522490598793,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-23,Alex Cobb,Kyle Bradish,8,3,4.380814619437768,4.169184421866217,5.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-23,Dylan Cease,J.P. France,3,8,4.113783329459404,4.111940022725499,5.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-23,Marco Gonzales,Austin Gomber,4,2,3.775085123720521,3.221929794329052,4.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-23,Adam Wainwright,Nathan Eovaldi,2,5,3.197796767769864,6.4909217304181,4.5,5.5,Under,Over,Yes,No,5,-5,No
-2023-05-23,MacKenzie Gore,Taj Bradley,5,7,6.354486345498987,6.310413849251922,5.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-05-23,Yu Darvish,Luis Medina,4,4,5.935392188968422,5.308993377844786,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-23,Drew Smyly,Rich Hill,5,9,4.861495192488592,4.786149080317321,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-23,Colin Rea,Graham Ashcraft,4,5,4.383189165213793,4.178184373954483,3.5,3.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-24,Zac Gallen,Joe Ryan,3,4,6.181058200614823,5.936497671005455,6.5,6.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-24,James Paxton,Sandy Alcantara,5,3,5.199980513505096,5.132645668702038,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-24,Nestor Cortes,Steven Matz,5,2,4.812729191544905,4.332823095880422,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-24,Anthony DeSclafani,Tyler Anderson,6,3,4.215322671427282,3.902309531463597,5.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-24,Cal Quantrill,Shane McClanahan,2,7,3.6537744411167696,6.822309510502594,4.5,5.5,Under,Over,Yes,Yes,5,10,Yes
-2023-05-24,Bryce Miller,Tyler Wells,6,8,5.860787921728971,5.115497584549996,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-24,Bryce Elder,Michael Kopech,6,9,5.0429510585985975,4.93719959936186,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-24,Yusei Kikuchi,Johan Oviedo,5,5,4.845304264673822,4.678885600907544,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-24,Brandon Bielak,Adrian Houser,3,3,4.656113717139252,4.015616769797116,4.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-24,Zack Greinke,Trevor Williams,5,5,3.7395479170039656,3.625379168219532,3.5,3.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-25,Lucas Giolito,Blake Snell,4,6,4.936944581030421,4.609498850411173,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-25,Clarke Schmidt,Kyle Gibson,4,3,4.340224095588788,4.225913026325912,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-25,Alex Faedo,Alek Manoah,10,6,4.02702719816874,4.022911615765015,4.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-25,Miles Mikolas,Carlos Carrasco,5,4,3.651825933852898,3.4317079305810863,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-25,Kyle Hendricks,Zach Eflin,5,0,2.5354673437841915,6.227017117797102,3.5,4.5,Under,Over,No,No,5,-5,No
-2023-05-25,JP Sears,Braxton Garrett,1,3,6.221139179081993,4.792093398111184,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-25,Luke Weaver,Dylan Dodd,6,3,4.647124891364007,4.268000660845672,4.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-26,Hunter Greene,Kevin Gausman,11,8,6.867234977850492,6.321066386331096,7.5,7.5,Under,Under,No,No,5,-5,No
-2023-05-26,Chris Sale,Mitch Keller,3,8,6.26598243014984,6.004329190084599,6.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-26,Hunter Brown,Freddy Peralta,10,4,5.948863529831302,5.717225705890467,6.5,6.5,Under,Under,No,Yes,5,-5,No
-2023-05-26,Justin Steele,Grayson Rodriguez,4,6,5.152106002731725,5.020046066400294,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-26,Joe Musgrove,Max Scherzer,6,8,4.616288771645213,4.129875656919802,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-26,Alex Wood,Joey Wentz,5,4,3.974817750106008,3.92291151432068,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-26,Shane Bieber,Taijuan Walker,2,1,3.634219023850505,3.4207503633908347,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-26,Patrick Corbin,Reid Detmers,6,5,2.4471932622813144,5.979365628162491,3.5,5.5,Under,Over,No,No,5,-5,No
-2023-05-26,Louie Varland,James Kaprielian,3,4,5.264912902505947,4.887249134333056,4.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-26,Jon Gray,Matthew Liberatore,8,2,4.817077568385791,4.7714778598780585,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-05-26,Jordan Lyles,Brandon Pfaadt,2,4,4.348083253327782,4.285898314993697,3.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-05-26,Noah Syndergaard,Connor Seabold,3,2,3.9527839277952497,3.7527477971510623,3.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-27,Zack Wheeler,Andrew Heaney,12,3,5.983799609422578,5.308474985245208,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-27,Luis Severino,Charlie Morton,5,9,5.152482363869679,4.8680027044891565,5.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-27,Corbin Burnes,Brandon Williamson,8,3,4.849568743715982,4.233768765297402,7.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-27,Justin Verlander,Dean Kremer,2,5,4.2250699485851495,4.0148404116622025,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-27,Michael Lorenzen,Chris Bassitt,4,5,4.001782788323038,3.9057770525618674,4.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-27,Jameson Taillon,Brady Singer,5,6,3.8358817844369306,3.759550651292394,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-27,Tanner Bibee,Tyler Glasnow,9,8,3.509600100017057,3.3783857483083755,4.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-27,Josiah Gray,Jesse Scholtens,4,3,3.216011500419404,2.9776836778428204,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-27,Clayton Kershaw,Logan Webb,6,11,6.81663701122212,6.409911528924851,6.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-05-27,Garrett Whitlock,Zach Davies,4,3,4.051551737722862,3.668022499052287,3.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-28,Spencer Strider,Gerrit Cole,9,9,7.257801302501722,6.341854077016836,8.5,7.5,Under,Under,No,No,5,-5,No
-2023-05-28,Cristian Javier,Alex Cobb,3,5,5.4109260789811096,5.2967070905535225,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-28,Yu Darvish,MacKenzie Gore,2,11,5.088802751001096,4.739524267106838,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-28,Drew Smyly,Dylan Cease,2,8,4.415955153954186,4.347882288358647,5.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-28,Luis Ortiz,Colin Rea,6,6,4.204290203399211,4.190413457012539,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-28,Marco Gonzales,Patrick Sandoval,4,2,4.148735582211145,4.088578392661,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-28,Bailey Ober,Kyle Bradish,7,4,3.898263629658783,3.648785393614562,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-05-28,Jordan Montgomery,Daniel Lynch,3,6,3.462080030183408,3.2724102000613127,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-28,Cody Bradford,Hunter Gaddis,5,3,3.217892448964865,3.197312109300257,4.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-28,Dylan Covey,Tanner Houck,0,4,2.7619807601428383,5.495601897480939,3.5,4.5,Under,Over,Yes,No,5,-5,No
-2023-05-28,Merrill Kelly,Tylor Megill,10,3,5.171969551822309,3.6126802924389234,4.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-05-29,Nathan Eovaldi,Michael Kopech,4,10,6.235879222097831,4.870544163878488,6.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-05-29,J.P. France,Rich Hill,8,3,4.858837740825805,4.353427964733632,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-05-29,Ryne Nelson,Adam Wainwright,1,6,4.200242401923365,3.074947196463981,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-29,Taj Bradley,Sonny Gray,8,3,6.49460338359079,6.320810580382581,5.5,5.5,Over,Over,Yes,No,5,-5,No
-2023-05-29,Logan Allen,Tyler Wells,10,7,5.087807376514084,4.893144843464208,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-29,Bobby Miller,Karl Kauffmann,4,1,4.671151102027203,3.86444620975704,4.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-30,Nestor Cortes,Lucas Giolito,6,5,5.170611230900955,4.8304720951156135,6.5,6.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-30,Bryce Elder,Brandon Bielak,5,6,4.602628807955396,4.340314001865868,5.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-05-30,JP Sears,Tyler Anderson,2,3,4.3238946154264095,4.266000888504728,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-30,Miles Mikolas,Kyle Gibson,10,3,4.191502477675632,3.3202087712563726,4.5,3.5,Under,Under,No,Yes,5,-5,No
-2023-05-30,Cal Quantrill,Shane McClanahan,3,7,3.019346654938979,7.205742689459806,3.5,6.5,Under,Over,Yes,Yes,5,10,Yes
-2023-05-30,Kodai Senga,Logan Gilbert,9,4,6.269250911170593,6.020988399834922,5.5,5.5,Over,Over,Yes,No,5,-5,No
-2023-05-30,Sandy Alcantara,Ben Lively,3,6,5.857517025171752,5.815579509339477,5.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-05-30,Kyle Hendricks,Alex Faedo,3,4,5.324385114994793,5.080166750597366,3.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-31,Hunter Brown,Mitch Keller,8,8,6.433739031921169,5.845988808164915,7.5,6.5,Under,Under,No,No,5,-5,No
-2023-05-31,Lance Lynn,Blake Snell,4,7,5.576941104068679,5.277359335953815,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-05-31,James Paxton,George Kirby,8,7,5.1124528551949,4.696728943387319,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-05-31,Alek Manoah,Patrick Corbin,2,2,4.335802334246878,4.263526739851152,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-31,James Kaprielian,Carlos Carrasco,4,4,4.250258364009355,4.224781489055934,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-05-31,Joey Wentz,Dane Dunning,5,6,3.8945958596824624,3.7749410378787824,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-05-31,Aaron Nola,Justin Steele,5,1,5.9042353473283935,5.263246546855655,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-05-31,Louie Varland,Braxton Garrett,5,7,4.813739798068269,4.7900118310814745,4.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-05-31,Alex Wood,Julio Teheran,4,0,4.742034576690199,4.605464796825986,4.5,3.5,Over,Over,No,No,5,-5,No
-2023-05-31,Luke Weaver,Noah Syndergaard,5,2,4.353384495068234,4.130514845622392,3.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-06-01,Kevin Gausman,Hunter Greene,11,8,6.986919628253933,5.958709407936024,7.5,6.5,Under,Under,No,No,5,-5,No
-2023-06-01,Max Scherzer,Freddy Peralta,9,3,5.341974369899789,4.993669993221877,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-06-01,Chris Sale,Joe Musgrove,6,3,4.90296383688551,4.801744820815291,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-01,Reid Detmers,Zach Davies,2,4,4.442678358939825,3.827688348335773,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-06,Mitch Keller,Zach Eflin,1,9,5.80613177309612,4.987525130015326,6.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-06-06,James Paxton,Freddy Peralta,9,9,4.871739782639631,4.863314328663992,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-06-06,Joe Musgrove,Kyle Gibson,8,7,4.717358471640644,4.232377491319228,6.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-06,James Kaprielian,Tyler Anderson,1,5,4.126133346776809,3.974332739626399,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-06-06,Taijuan Walker,Shane Bieber,8,2,3.9138851096971057,3.638858422378608,4.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-06-06,Dane Dunning,Jake Irvin,1,1,3.536990854245156,3.3565637424923827,4.5,3.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-06,Carlos Carrasco,Tony Gonsolin,4,5,3.351182745105815,3.338531646897658,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-06-06,Dinelson Lamet,Hayden Wesneski,4,4,3.1113254158403687,2.780902612501322,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-06,Logan Gilbert,Bryce Elder,6,8,6.554433083205213,5.303942670695603,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-06,Louie Varland,Luke Weaver,5,4,4.967909845174509,4.683077116740227,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-06-06,Tommy Henry,Zack Greinke,2,3,4.433174876379749,4.128987952565599,3.5,3.5,Over,Over,No,No,5,-5,No
-2023-06-07,Max Scherzer,Michael Wacha,10,7,5.346525906485561,5.243093821834162,6.5,5.5,Under,Under,No,No,5,-5,No
-2023-06-07,George Kirby,Jack Flaherty,3,8,5.231525472496842,4.820340816343829,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-06-07,Jon Gray,Roansy Contreras,12,1,4.331239415872775,4.061156842157316,5.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-06-07,Jameson Taillon,Hogan Harris,5,2,3.6600007519298594,3.584306958562951,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-06-07,Noah Syndergaard,Edward Cabrera,3,4,3.2489938884262,6.76934360170223,4.5,6.5,Under,Over,Yes,No,5,-5,No
-2023-06-07,Logan Webb,Chris Bassitt,3,5,5.928943266984282,5.620644981283152,5.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-06-07,Jaime Barria,Ronel Blanco,3,5,5.371984357772696,4.661955921614494,4.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-06-07,Jordan Lyles,Patrick Corbin,2,4,4.550378686686389,4.138536922591774,3.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-06-08,Spencer Strider,Clayton Kershaw,8,9,7.850904896627454,6.533471094511551,8.5,7.5,Under,Under,Yes,No,5,-5,No
-2023-06-08,Reid Detmers,Framber Valdez,8,5,5.130853359198804,4.992964801131285,6.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-06-08,Justin Verlander,Luis Severino,3,6,4.760351940201124,4.203246828634724,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-06-08,Drew Smyly,Chase Anderson,4,7,4.005157166494702,2.669865376863575,4.5,3.5,Under,Under,Yes,No,5,-5,No
-2023-06-08,Alex Cobb,Graham Ashcraft,7,1,4.646280998276787,3.857543779656475,4.5,3.5,Over,Over,Yes,No,5,-5,No
-2023-06-09,Shohei Ohtani,Merrill Kelly,6,5,6.508525184387037,5.9352178943125455,7.5,6.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-09,Gerrit Cole,Luis Castillo,6,10,5.672746238028632,5.553567133008865,7.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-06-09,Tyler Wells,Yusei Kikuchi,4,4,5.139802088050872,4.892852706446072,6.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-09,Jordan Montgomery,Tylor Megill,6,1,4.58911332355955,3.913249022448909,5.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-06-09,Austin Gomber,Tyler Glasnow,1,6,3.359236684041714,7.8236208483192975,3.5,7.5,Under,Over,Yes,No,5,-5,No
-2023-06-09,Dylan Cease,Ben Lively,7,8,5.845154273290747,5.476744184058205,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-09,Logan Allen,Andrew Heaney,4,5,5.181718056461289,5.1695335063574746,4.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-06-09,Sonny Gray,Daniel Lynch,5,4,5.058897259097112,4.995280979026958,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-06-09,Michael Lorenzen,Cristian Javier,3,2,4.79418979154798,4.669645782283341,4.5,4.5,Over,Over,No,No,5,-5,No
-2023-06-10,Kodai Senga,Tanner Houck,6,6,4.952133560618569,4.912800045713495,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-06-10,Bobby Miller,Patrick Sandoval,7,8,4.740264545259215,4.301548744399333,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-06-10,Paul Blackburn,Bryan Woo,5,7,4.059487165300806,3.751561269085345,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-10,Julio Teheran,Cole Irvin,6,5,3.578536683413193,3.309046327987374,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-10,Ryne Nelson,Taj Bradley,4,4,2.962058677714852,7.484656960704313,4.5,5.5,Under,Over,Yes,No,5,-5,No
-2023-06-10,Nathan Eovaldi,Michael Kopech,6,6,6.674384085550804,6.19352282977238,5.5,5.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-10,Sandy Alcantara,Andrew Abbott,4,4,5.792151883649634,5.077046893774028,5.5,4.5,Over,Over,No,No,5,-5,No
-2023-06-10,Brady Singer,J.P. France,4,6,4.5655648877164365,3.954131615784192,3.5,3.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-11,Zac Gallen,Hunter Greene,5,9,5.9008467227790895,5.6282761445382326,6.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-06-11,Freddy Peralta,JP Sears,5,5,5.374094177308125,5.309550872207815,7.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-11,Griffin Canning,Brayan Bello,7,3,5.083252725060384,5.001077473792752,5.5,5.5,Under,Under,No,Yes,5,-5,No
-2023-06-11,Clarke Schmidt,Carlos Carrasco,4,1,4.015107251130187,3.997289415448712,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-11,Kyle Gibson,Adam Wainwright,4,2,3.945091975127804,3.680353937502852,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-11,Dinelson Lamet,Brandon Bielak,5,4,3.602411376375402,3.346374240995593,4.5,3.5,Under,Under,No,No,5,-5,No
-2023-06-11,Hayden Wesneski,Shane Bieber,4,9,3.307490600275608,2.9396576829668173,4.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-06-11,Shane McClanahan,Mitch Keller,5,7,7.526319249717133,6.095042445550639,6.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-06-11,Lucas Giolito,Blake Snell,8,12,5.9932366746058605,5.957188555586139,5.5,5.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-11,Bryce Elder,Louie Varland,1,6,5.187392277712101,5.132851294424245,4.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-06-12,Logan Webb,Tommy Henry,6,6,4.851629485478377,4.084368749828948,5.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-12,Tyler Anderson,Luke Weaver,7,3,3.592140257765108,3.4402294500950465,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-06-12,Matthew Liberatore,Dane Dunning,5,3,3.232096844051249,2.898939410905769,4.5,4.5,Under,Under,No,Yes,5,-5,No
-2023-06-12,Connor Seabold,James Paxton,6,8,2.813775212996974,8.104321597770957,3.5,7.5,Under,Over,No,Yes,5,-5,No
-2023-06-12,Zach Eflin,Bryce Miller,6,6,5.952028330653454,5.107282924819325,5.5,4.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-12,James Kaprielian,Zack Greinke,4,4,4.683127930216114,3.73566054054588,4.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-06-13,Zack Wheeler,Edward Cabrera,7,4,6.268901388469779,6.111722974863649,6.5,6.5,Under,Under,No,Yes,5,-5,No
-2023-06-13,Max Scherzer,Corbin Burnes,2,8,5.971516386631952,5.556130428442864,7.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-06-13,Jack Flaherty,George Kirby,3,10,5.2773245764736805,5.133544592489493,5.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-06-13,Joe Musgrove,Alex Cobb,5,5,4.9500599060068255,4.644531204877345,5.5,5.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-13,Luis Severino,Tony Gonsolin,4,6,4.596429979443788,4.1162090423207545,5.5,4.5,Under,Under,Yes,No,5,-5,No
-2023-06-13,Jordan Lyles,Brandon Williamson,4,1,3.8864747730001454,3.3146384453619286,4.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-13,Hunter Brown,Lance Lynn,4,6,6.367482259370511,5.866126177384551,5.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-06-13,Chris Bassitt,Tanner Bibee,5,3,4.738946949086191,4.717518591856591,4.5,4.5,Over,Over,Yes,No,5,-5,No
-2023-06-13,Zach Davies,Dean Kremer,4,6,4.677765875789832,4.594101723946864,3.5,3.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-14,Spencer Strider,Gerrit Cole,6,8,6.642879142413758,5.999257183272984,8.5,6.5,Under,Under,Yes,No,5,-5,No
-2023-06-14,Tyler Glasnow,Garrett Whitlock,6,7,5.868157525845577,5.302924752641316,8.5,5.5,Under,Under,Yes,No,5,-5,No
-2023-06-14,Reid Detmers,Jordan Montgomery,8,7,5.183596106496484,5.138761921665523,5.5,5.5,Under,Under,No,No,5,-5,No
-2023-06-14,Justin Verlander,Michael Lorenzen,6,3,4.743257170236856,4.176231275604892,6.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-14,Andrew Heaney,Colin Rea,5,4,3.995015833329833,3.811032910549257,5.5,4.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-14,Mike Clevinger,Aaron Civale,5,7,3.592924481186286,3.572211517324896,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-14,Austin Gomber,Luis Castillo,5,6,2.6773405615415475,7.219567987072404,3.5,6.5,Under,Over,No,No,5,-5,No
-2023-06-14,Merrill Kelly,Bailey Ober,7,7,5.90528118255501,5.862831063180729,5.5,5.5,Over,Over,Yes,Yes,5,10,Yes
-2023-06-14,Ben Lively,Michael Wacha,4,5,4.986223748045656,4.97622488604235,4.5,4.5,Over,Over,No,Yes,5,-5,No
-2023-06-14,Daniel Lynch,Josiah Gray,3,5,4.860146706375607,4.814075113119231,4.5,3.5,Over,Over,No,Yes,5,-5,No
-2023-06-15,Shohei Ohtani,Sonny Gray,3,3,5.3224746136434185,5.317845826608702,7.5,6.5,Under,Under,Yes,Yes,5,10,Yes
-2023-06-15,Taj Bradley,Nathan Eovaldi,11,9,5.245820398545787,5.05240891803652,5.5,6.5,Under,Under,No,No,5,-5,No
-2023-06-15,Yusei Kikuchi,Michael Grove,7,7,4.7805909566889575,4.325533865200734,5.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-15,Ryne Nelson,AJ Smith-Shawver,5,6,3.926271018271912,3.769628267982403,4.5,4.5,Under,Under,No,No,5,-5,No
-2023-06-15,Kyle Freeland,Aaron Nola,1,9,3.236576729241501,6.126469366160194,3.5,5.5,Under,Over,Yes,Yes,5,10,Yes
-2023-06-15,MacKenzie Gore,Dylan Cease,4,10,6.074732851303323,5.779147359022256,5.5,5.5,Over,Over,No,Yes,5,-5,No
-2023-06-15,Logan Allen,Tyler Wells,2,8,5.2590673219471205,5.003921139298935,4.5,4.5,Over,Over,No,Yes,5,-5,No
+Player1,SO_y1,predictedStrikeouts1,prop1,Bet1,SuccessfulBet1,Player2,SO_y2,predictedStrikeouts2,prop2,Bet2,SuccessfulBet2,Player3,SO_y3,predictedStrikeouts3,prop3,Bet3,SuccessfulBet3,Player4,SO_y4,predictedStrikeouts4,prop4,Bet4,SuccessfulBet4,Player5,SO_y5,predictedStrikeouts5,prop5,Bet5,SuccessfulBet5,Player6,SO_y6,predictedStrikeouts6,prop6,Bet6,SuccessfulBet6,Date,BetAmount,Outcome,SuccessfulParlay
+Shohei Ohtani,7,7.2555165726152255,7.5,Under,Yes,Andrew Heaney,7,5.198933721670856,6.5,Under,No,Framber Valdez,12,5.0699593553659295,5.5,Under,No,Lucas Giolito,9,4.5560249560609964,5.5,Under,No,Clarke Schmidt,7,4.513633820054189,6.5,Under,No,Grayson Rodriguez,4,4.445108967781384,5.5,Under,Yes,2023-05-09,5,-5,No
+Clayton Kershaw,8,7.109837720049494,7.5,Under,No,Zack Wheeler,7,5.836611937407116,6.5,Under,No,Justin Verlander,7,4.966630264093607,6.5,Under,No,Cristian Javier,11,4.759483586848788,6.5,Under,No,Jordan Montgomery,3,4.696345620828088,5.5,Under,Yes,Justin Steele,3,4.585497651640339,5.5,Under,Yes,2023-05-10,5,-5,No
+Yu Darvish,7,5.1402967390471925,6.5,Under,No,Mike Clevinger,2,4.228859303373117,4.5,Under,Yes,Brady Singer,4,3.758360002967496,4.5,Under,Yes,Bailey Ober,6,6.145601970893191,4.5,Over,Yes,Drew Rasmussen,7,5.792015621350547,4.5,Over,Yes,Alex Cobb,3,5.203922739657561,4.5,Over,No,2023-05-11,5,-3,Yes
+Spencer Strider,12,7.067412054139812,8.5,Under,No,Sonny Gray,9,5.652543326881983,6.5,Under,No,Blake Snell,4,5.5854244368024455,6.5,Under,Yes,Ken Waldichuk,5,4.400066768779659,5.5,Under,Yes,Corbin Burnes,7,4.382810282654225,6.5,Under,No,Logan Allen,5,4.204153309362115,4.5,Under,No,2023-05-12,5,-5,No
+Joe Ryan,10,5.81391000781645,7.5,Under,No,Chris Sale,9,5.632083838885048,6.5,Under,No,Shane McClanahan,3,5.625879556522341,6.5,Under,Yes,Bryce Miller,3,5.106755296214629,5.5,Under,Yes,Reid Detmers,3,4.890838964700438,5.5,Under,Yes,Joe Musgrove,5,4.630411920821352,5.5,Under,Yes,2023-05-13,5,-3,Yes
+Logan Gilbert,4,5.275035025321141,6.5,Under,Yes,Clarke Schmidt,5,5.207517915767666,5.5,Under,Yes,Andrew Heaney,9,5.124553365527488,6.5,Under,No,Marcus Stroman,3,4.564444507341173,5.5,Under,Yes,Tony Gonsolin,6,4.153023628440327,4.5,Under,No,Yusei Kikuchi,7,4.148696391990293,5.5,Under,No,2023-05-14,5,-5,No
+Shohei Ohtani,5,6.428958520694744,7.5,Under,Yes,Hunter Greene,8,5.22811049951692,5.5,Under,No,Freddy Peralta,4,5.133652917517024,5.5,Under,Yes,Charlie Morton,10,4.82299174940886,6.5,Under,No,Jack Flaherty,10,4.745901009307897,5.5,Under,No,Merrill Kelly,9,4.6000964141133736,6.5,Under,No,2023-05-15,5,-5,No
+Cristian Javier,5,7.259994925268803,7.5,Under,Yes,Clayton Kershaw,7,7.190542471730579,7.5,Under,Yes,Kevin Gausman,10,7.1108694709010045,7.5,Under,No,Zack Wheeler,8,6.036152036408814,6.5,Under,No,Justin Verlander,3,5.646829111410173,6.5,Under,Yes,Luis Castillo,6,5.292509407241735,5.5,Under,No,2023-05-16,5,-5,No
+Spencer Strider,7,7.045926992403261,9.5,Under,Yes,MacKenzie Gore,7,5.949848584469472,6.5,Under,No,Gerrit Cole,6,5.310518282486026,6.5,Under,Yes,Edward Cabrera,6,4.7825889958013175,5.5,Under,No,Brayan Bello,7,4.77447004039896,5.5,Under,No,Chris Bassitt,7,4.647165665712365,5.5,Under,No,2023-05-17,5,-5,No
+Dylan Cease,3,4.722662945386071,6.5,Under,Yes,Tyler Wells,7,4.566825649577463,5.5,Under,No,Tylor Megill,4,4.173562455978404,4.5,Under,Yes,Tyler Anderson,2,4.167077868125291,4.5,Under,Yes,Nestor Cortes,6,4.092876872074711,4.5,Under,No,Trevor Williams,5,3.2390470643626394,4.5,Under,No,2023-05-18,5,-5,No
+Shane McClanahan,7,6.6088558069005,7.5,Under,Yes,Joe Ryan,9,5.754142266474373,6.5,Under,No,Blake Snell,5,5.419393199965317,6.5,Under,Yes,Yusei Kikuchi,3,5.220911081850198,5.5,Under,Yes,Reid Detmers,12,5.1719516362451134,5.5,Under,No,Bryce Elder,6,5.137636208327881,5.5,Under,No,2023-05-19,5,-5,No
+Hunter Brown,9,5.459149056746248,6.5,Under,No,Louie Varland,4,5.177677278184563,5.5,Under,Yes,Patrick Sandoval,3,4.815519244558004,5.5,Under,Yes,Joe Musgrove,6,4.524365278999367,5.5,Under,No,Aaron Nola,10,4.423992125644562,6.5,Under,No,Jon Gray,6,4.362122216184946,5.5,Under,No,2023-05-20,5,-5,No
+Shohei Ohtani,9,7.893459654395365,8.5,Under,No,Framber Valdez,7,6.307878403494771,7.5,Under,Yes,Hunter Greene,10,6.100180866130927,6.5,Under,No,Clayton Kershaw,6,6.028368544997313,6.5,Under,Yes,Andrew Heaney,5,5.495386323766574,6.5,Under,Yes,Josiah Gray,2,4.906157679492737,5.5,Under,Yes,2023-05-21,5,-3,Yes
+Luis Castillo,8,7.173386021298504,7.5,Under,No,Charlie Morton,5,5.99501733652537,6.5,Under,Yes,Jordan Montgomery,4,5.058199462884795,5.5,Under,Yes,Corbin Burnes,5,4.823388982321983,6.5,Under,Yes,Brady Singer,3,4.183224284102277,4.5,Under,Yes,Dane Dunning,3,3.953979787564697,4.5,Under,Yes,2023-05-22,5,5,Yes
+Spencer Strider,11,7.311683466699555,8.5,Under,No,Gerrit Cole,2,7.188187225791052,7.5,Under,Yes,Sonny Gray,6,5.644013559075541,6.5,Under,Yes,Brayan Bello,6,5.188522490598793,5.5,Under,No,Alex Cobb,8,4.380814619437768,5.5,Under,No,Kyle Bradish,3,4.169184421866217,5.5,Under,Yes,2023-05-23,5,-5,No
+Zac Gallen,3,6.181058200614823,6.5,Under,Yes,Joe Ryan,4,5.936497671005455,6.5,Under,Yes,James Paxton,5,5.199980513505096,5.5,Under,Yes,Sandy Alcantara,3,5.132645668702038,5.5,Under,Yes,Nestor Cortes,5,4.812729191544905,5.5,Under,Yes,Steven Matz,2,4.332823095880422,5.5,Under,Yes,2023-05-24,5,120,Yes
+Lucas Giolito,4,4.936944581030421,5.5,Under,Yes,Blake Snell,6,4.609498850411173,5.5,Under,No,Clarke Schmidt,4,4.340224095588788,4.5,Under,Yes,Kyle Gibson,3,4.225913026325912,4.5,Under,Yes,Alex Faedo,10,4.02702719816874,4.5,Under,No,Alek Manoah,6,4.022911615765015,5.5,Under,No,2023-05-25,5,-5,No
+Hunter Greene,11,6.867234977850492,7.5,Under,No,Kevin Gausman,8,6.321066386331096,7.5,Under,No,Chris Sale,3,6.26598243014984,6.5,Under,Yes,Mitch Keller,8,6.004329190084599,6.5,Under,No,Hunter Brown,10,5.948863529831302,6.5,Under,No,Freddy Peralta,4,5.717225705890467,6.5,Under,Yes,2023-05-26,5,-5,No
+Zack Wheeler,12,5.983799609422578,6.5,Under,No,Andrew Heaney,3,5.308474985245208,5.5,Under,Yes,Luis Severino,5,5.152482363869679,5.5,Under,Yes,Charlie Morton,9,4.8680027044891565,6.5,Under,No,Corbin Burnes,8,4.849568743715982,7.5,Under,No,Brandon Williamson,3,4.233768765297402,4.5,Under,Yes,2023-05-27,5,-5,No
+Spencer Strider,9,7.257801302501722,8.5,Under,No,Gerrit Cole,9,6.341854077016836,7.5,Under,No,Cristian Javier,3,5.4109260789811096,6.5,Under,Yes,Alex Cobb,5,5.2967070905535225,5.5,Under,Yes,Yu Darvish,2,5.088802751001096,5.5,Under,Yes,MacKenzie Gore,11,4.739524267106838,5.5,Under,No,2023-05-28,5,-5,No
+Nathan Eovaldi,4,6.235879222097831,6.5,Under,Yes,Michael Kopech,10,4.870544163878488,6.5,Under,No,J.P. France,8,4.858837740825805,6.5,Under,No,Rich Hill,3,4.353427964733632,5.5,Under,Yes,Ryne Nelson,1,4.200242401923365,4.5,Under,Yes,Adam Wainwright,6,3.074947196463981,4.5,Under,No,2023-05-29,5,-5,No
+Nestor Cortes,6,5.170611230900955,6.5,Under,Yes,Lucas Giolito,5,4.8304720951156135,6.5,Under,Yes,Bryce Elder,5,4.602628807955396,5.5,Under,Yes,Brandon Bielak,6,4.340314001865868,4.5,Under,No,JP Sears,2,4.3238946154264095,4.5,Under,Yes,Tyler Anderson,3,4.266000888504728,4.5,Under,Yes,2023-05-30,5,5,Yes
+Hunter Brown,8,6.433739031921169,7.5,Under,No,Mitch Keller,8,5.845988808164915,6.5,Under,No,Lance Lynn,4,5.576941104068679,6.5,Under,Yes,Blake Snell,7,5.277359335953815,5.5,Under,No,James Paxton,8,5.1124528551949,5.5,Under,No,George Kirby,7,4.696728943387319,5.5,Under,No,2023-05-31,5,-5,No
+Kevin Gausman,11,6.986919628253933,7.5,Under,No,Hunter Greene,8,5.958709407936024,6.5,Under,No,Max Scherzer,9,5.341974369899789,6.5,Under,No,Freddy Peralta,3,4.993669993221877,5.5,Under,Yes,Chris Sale,6,4.90296383688551,6.5,Under,Yes,Joe Musgrove,3,4.801744820815291,5.5,Under,Yes,2023-06-01,5,-5,No
+Mitch Keller,1,5.80613177309612,6.5,Under,Yes,Zach Eflin,9,4.987525130015326,5.5,Under,No,James Paxton,9,4.871739782639631,5.5,Under,No,Freddy Peralta,9,4.863314328663992,5.5,Under,No,Joe Musgrove,8,4.717358471640644,6.5,Under,No,Kyle Gibson,7,4.232377491319228,4.5,Under,No,2023-06-06,5,-5,No
+Max Scherzer,10,5.346525906485561,6.5,Under,No,Michael Wacha,7,5.243093821834162,5.5,Under,No,George Kirby,3,5.231525472496842,5.5,Under,Yes,Jack Flaherty,8,4.820340816343829,5.5,Under,No,Jon Gray,12,4.331239415872775,5.5,Under,No,Roansy Contreras,1,4.061156842157316,5.5,Under,Yes,2023-06-07,5,-5,No
+Spencer Strider,8,7.850904896627454,8.5,Under,Yes,Clayton Kershaw,9,6.533471094511551,7.5,Under,No,Reid Detmers,8,5.130853359198804,6.5,Under,No,Framber Valdez,5,4.992964801131285,5.5,Under,Yes,Justin Verlander,3,4.760351940201124,5.5,Under,Yes,Luis Severino,6,4.203246828634724,5.5,Under,No,2023-06-08,5,-5,No
+Shohei Ohtani,6,6.508525184387037,7.5,Under,Yes,Merrill Kelly,5,5.9352178943125455,6.5,Under,Yes,Gerrit Cole,6,5.672746238028632,7.5,Under,Yes,Luis Castillo,10,5.553567133008865,6.5,Under,No,Tyler Wells,4,5.139802088050872,6.5,Under,Yes,Yusei Kikuchi,4,4.892852706446072,5.5,Under,Yes,2023-06-09,5,5,Yes
+Kodai Senga,6,4.952133560618569,5.5,Under,No,Tanner Houck,6,4.912800045713495,5.5,Under,No,Bobby Miller,7,4.740264545259215,5.5,Under,No,Patrick Sandoval,8,4.301548744399333,5.5,Under,No,Paul Blackburn,5,4.059487165300806,4.5,Under,No,Bryan Woo,7,3.751561269085345,4.5,Under,No,2023-06-10,5,-5,No
+Zac Gallen,5,5.9008467227790895,6.5,Under,Yes,Hunter Greene,9,5.6282761445382326,6.5,Under,No,Freddy Peralta,5,5.374094177308125,7.5,Under,Yes,JP Sears,5,5.309550872207815,5.5,Under,Yes,Griffin Canning,7,5.083252725060384,5.5,Under,No,Brayan Bello,3,5.001077473792752,5.5,Under,Yes,2023-06-11,5,-3,Yes
+Logan Webb,6,4.851629485478377,5.5,Under,No,Tommy Henry,6,4.084368749828948,4.5,Under,No,Tyler Anderson,7,3.592140257765108,4.5,Under,No,Luke Weaver,3,3.4402294500950465,4.5,Under,Yes,Matthew Liberatore,5,3.232096844051249,4.5,Under,No,Dane Dunning,3,2.898939410905769,4.5,Under,Yes,2023-06-12,5,-5,No
+Zack Wheeler,7,6.268901388469779,6.5,Under,No,Edward Cabrera,4,6.111722974863649,6.5,Under,Yes,Max Scherzer,2,5.971516386631952,7.5,Under,Yes,Corbin Burnes,8,5.556130428442864,6.5,Under,No,Jack Flaherty,3,5.2773245764736805,5.5,Under,Yes,George Kirby,10,5.133544592489493,5.5,Under,No,2023-06-13,5,-5,No
+Spencer Strider,6,6.642879142413758,8.5,Under,Yes,Gerrit Cole,8,5.999257183272984,6.5,Under,No,Tyler Glasnow,6,5.868157525845577,8.5,Under,Yes,Garrett Whitlock,7,5.302924752641316,5.5,Under,No,Reid Detmers,8,5.183596106496484,5.5,Under,No,Jordan Montgomery,7,5.138761921665523,5.5,Under,No,2023-06-14,5,-5,No
+Shohei Ohtani,3,5.3224746136434185,7.5,Under,Yes,Sonny Gray,3,5.317845826608702,6.5,Under,Yes,Taj Bradley,11,5.245820398545787,5.5,Under,No,Nathan Eovaldi,9,5.05240891803652,6.5,Under,No,Yusei Kikuchi,7,4.7805909566889575,5.5,Under,No,Michael Grove,7,4.325533865200734,4.5,Under,No,2023-06-15,5,-5,No
