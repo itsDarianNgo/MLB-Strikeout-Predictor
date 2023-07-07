@@ -112,7 +112,7 @@ def check_parlay(df):
 def calculate_outcome(row):
     successful_bets = [row["SuccessfulBet1"], row["SuccessfulBet2"]]
     if successful_bets.count("Yes") == 2:
-        return 15  # Return 15 when both bets are successful
+        return 10  # Net gain of $10 when both bets are successful
     else:
         return -5  # Lose the initial $5 if any bet is unsuccessful
 
