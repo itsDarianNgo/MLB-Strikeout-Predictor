@@ -34,7 +34,7 @@ def calculate_weighted_avg_strikeouts(final_data, decay_rate=0.90):  # Lower dec
 
 def calculate_strikeout_prop(final_data_sorted):
     # Create strikeout prop based on weighted average, cap it to the provided limits, and round up to the nearest half
-    final_data_sorted["SO_Prop"] = np.clip(final_data_sorted["Weighted_SO_lag"], 3.5, 8.5).apply(lambda x: np.ceil(x * 2) / 2)
+    final_data_sorted["SO_Prop"] = np.clip(final_data_sorted["Weighted_SO_lag"], 4.0, 8.5).apply(lambda x: np.ceil(x * 2) / 2)
 
     return final_data_sorted
 
