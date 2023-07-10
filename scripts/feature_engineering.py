@@ -258,9 +258,9 @@ def drop_unnecessary_columns(data):
 
 def main():
     # Load, clean, and merge the data
-    batting_data, pitching_data, game_data = load_data()
+    batting_data, pitching_data, game_data, props_data = load_data()
     batting_data, pitching_data, game_data = clean_data(batting_data, pitching_data, game_data)
-    final_data = merge_data(batting_data, pitching_data, game_data)
+    final_data = merge_data(batting_data, pitching_data, game_data, props_data)
 
     # Drop unnecessary columns
     final_data = drop_unnecessary_columns(final_data)

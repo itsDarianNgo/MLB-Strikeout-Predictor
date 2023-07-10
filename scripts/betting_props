@@ -8,7 +8,7 @@ def load_final_data():
     script_dir = os.path.dirname(os.path.realpath(__file__))
 
     # Define the directory where the final data file is located
-    final_data_dir = os.path.join(script_dir, "../data/final_data_with_features_2023.csv")
+    final_data_dir = os.path.join(script_dir, "../data/final_data_with_features.csv")
 
     # Load the final data from CSV file into a pandas DataFrame
     final_data = pd.read_csv(final_data_dir)
@@ -102,9 +102,9 @@ if __name__ == "__main__":
     save_props_data(final_data_with_prop)
 
     # Load the scraped data and convert the date format
-    scraped_data = load_scraped_data()
-    scraped_data = unify_date_format(scraped_data, "Date")
-    final_data_with_prop = unify_date_format(final_data_with_prop, "Date")
+    # scraped_data = load_scraped_data()
+    # scraped_data = unify_date_format(scraped_data, "Date")
+    # final_data_with_prop = unify_date_format(final_data_with_prop, "Date")
 
-    # Evaluate the model
-    evaluate_model(final_data_with_prop, scraped_data)
+    # # Evaluate the model
+    # evaluate_model(final_data_with_prop, scraped_data)

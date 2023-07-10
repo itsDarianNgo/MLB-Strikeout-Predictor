@@ -10,9 +10,14 @@ def load_data():
     batting_data_dir = os.path.join(script_dir, "../data/BattingData/")
     pitching_data_dir = os.path.join(script_dir, "../data/PitchingData/")
     game_data_dir = os.path.join(script_dir, "../data/GameData/")
+    props_data_dir = os.path.join(script_dir, "../data/final_props.csv")
 
     # Define the list of columns to drop
     columns_to_drop = ["aLI", "RE24", "cWPA", "WPA-"]
+
+    # Load props data
+    props_data = pd.read_csv(props_data_dir)
+    props_data["Date"] = pd.to_datetime(props_data["Date"], format="%m/%d/%Y")
 
     # Load and concatenate the data from all CSV files in each directory
     batting_data = pd.concat(
@@ -40,7 +45,7 @@ def load_data():
         ignore_index=True,
     )
 
-    return batting_data, pitching_data, game_data
+    return batting_data, pitching_data, game_data, props_data
 
 
 def clean_data(batting_data, pitching_data, game_data):
@@ -76,12 +81,15 @@ def clean_data(batting_data, pitching_data, game_data):
     return batting_data, pitching_data, game_data
 
 
-def merge_data(batting_data, pitching_data, game_data):
+def merge_data(batting_data, pitching_data, game_data, props_data):
     # Merge the batting data and pitching data on 'GameID', 'date', and 'player ID'
     merged_data = pd.merge(batting_data, pitching_data, on=["GameID", "Date", "Player", "Team"])
 
     # Merge the merged data and game data on 'GameID' and 'date'
-    final_data = pd.merge(merged_data, game_data, on=["GameID", "Date"])
+    merged_data = pd.merge(merged_data, game_data, on=["GameID", "Date"])
+
+    # Merge the merged data and props data on 'Date' and 'Player'
+    final_data = pd.merge(merged_data, props_data, on=["Date", "Player"], how="left")
 
     return final_data
 
@@ -96,7 +104,7 @@ def save_final_data(final_data):
 
 
 if __name__ == "__main__":
-    batting_data, pitching_data, game_data = load_data()
+    batting_data, pitching_data, game_data, props_data = load_data()
     batting_data_clean, pitching_data_clean, game_data_clean = clean_data(batting_data, pitching_data, game_data)
-    final_data = merge_data(batting_data_clean, pitching_data_clean, game_data_clean)
+    final_data = merge_data(batting_data_clean, pitching_data_clean, game_data_clean, props_data)
     save_final_data(final_data)
