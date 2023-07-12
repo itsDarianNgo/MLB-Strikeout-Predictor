@@ -65,9 +65,14 @@ def main():
     # Convert the merged data to H2O Frame
     final_data_h2o = h2o.H2OFrame(merged_data)
 
+    # Convert values to numeric
+    final_data_h2o["Avg_SO_vs_Team"] = final_data_h2o["Avg_SO_vs_Team"].asnumeric()
+    final_data_h2o["Rolling_Avg_SO_vs_Team"] = final_data_h2o["Rolling_Avg_SO_vs_Team"].asnumeric()
+    final_data_h2o["Std_SO_vs_Team"] = final_data_h2o["Std_SO_vs_Team"].asnumeric()
+
     # Paths to the saved models (update these paths as necessary)
-    classification_model_path = "./model_output/classification/GBM_1_AutoML_2_20230711_234718"
-    regression_model_path = "./model_output/regression/StackedEnsemble_BestOfFamily_1_AutoML_1_20230711_234239"
+    classification_model_path = "./model_output/classification/StackedEnsemble_BestOfFamily_1_AutoML_3_20230712_01203"
+    regression_model_path = "./model_output/regression/StackedEnsemble_BestOfFamily_1_AutoML_2_20230712_00626"
     final_data_with_predictions = predict_with_models(final_data_h2o, regression_model_path, classification_model_path)
 
     # Select only the necessary columns for the final output

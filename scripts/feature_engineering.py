@@ -131,6 +131,9 @@ def generate_lagged_features(player_data):
     columns_to_drop = [col for col in LAG_COLUMNS if col != "SO_y"] + ["FIP"]
     player_data.drop(columns=columns_to_drop, inplace=True)
 
+    # Fill NaN values with 0
+    player_data.fillna(0, inplace=True)
+
     return player_data
 
 
@@ -207,6 +210,9 @@ def generate_pitcher_fatigue(player_data):
     # Calculate the difference in days between consecutive games
     player_data["Days_Since_Last_Game"] = player_data["Date"].diff().dt.days
 
+    # Fill the NaN values (for the first game) with 0
+    player_data["Days_Since_Last_Game"].fillna(0, inplace=True)
+
     return player_data
 
 
@@ -219,6 +225,9 @@ def generate_KBB_ratio(player_data):
 
     player_data["SO_y_shifted"] = player_data["SO_y"].shift()
     player_data["K/BB_lag"] = player_data["SO_y_shifted"].cumsum() / player_data["BB_y_shifted"].cumsum()
+
+    # Fill NaN values with 0
+    player_data.fillna(0, inplace=True)
 
     # Drop auxiliary columns
     player_data.drop(columns=["BB_y_shifted", "SO_y_shifted"], inplace=True)
@@ -284,6 +293,9 @@ def generate_features(data):
 
     # Combine all player data
     historical_df = pd.concat(player_dfs, axis=0)
+
+    # Drop rows with missing values
+    historical_df.dropna(axis=0, how="any", inplace=True)
 
     # Reorder columns
     cols = historical_df.columns.tolist()
