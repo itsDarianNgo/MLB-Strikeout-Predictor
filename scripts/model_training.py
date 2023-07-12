@@ -33,6 +33,9 @@ def main():
     # Convert the preprocessed data to H2O Frame
     final_data_h2o = h2o.H2OFrame(final_data)
 
+    # Convert 'Avg_SO_vs_Team' to numeric
+    final_data_h2o["Avg_SO_vs_Team"] = final_data_h2o["Avg_SO_vs_Team"].asnumeric()
+
     # Define the target column for regression
     target_regression = "SO_y"
 
@@ -41,7 +44,7 @@ def main():
     predictors.remove(target_regression)
 
     # Initialize the H2O AutoML model for regression
-    aml_regression = H2OAutoML(max_models=1, seed=1, max_runtime_secs=1200)
+    aml_regression = H2OAutoML(max_models=3, seed=1, max_runtime_secs=600)
 
     # Train the regression model
     aml_regression.train(x=predictors, y=target_regression, training_frame=final_data_h2o)
@@ -70,7 +73,7 @@ def main():
     test[target_classification] = test[target_classification].asfactor()
 
     # Initialize the H2O AutoML model for classification
-    aml_classification = H2OAutoML(max_models=1, seed=1, max_runtime_secs=1200)
+    aml_classification = H2OAutoML(max_models=3, seed=1, max_runtime_secs=600)
 
     # Train the classification model
     aml_classification.train(x=predictors, y=target_classification, training_frame=train)

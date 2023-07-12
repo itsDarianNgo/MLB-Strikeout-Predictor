@@ -66,8 +66,8 @@ def main():
     final_data_h2o = h2o.H2OFrame(merged_data)
 
     # Paths to the saved models (update these paths as necessary)
-    regression_model_path = "./model_output/regression/GLM_1_AutoML_1_20230711_40542"
-    classification_model_path = "./model_output/classification/GBM_1_AutoML_2_20230711_41655"
+    classification_model_path = "./model_output/classification/GBM_1_AutoML_2_20230711_234718"
+    regression_model_path = "./model_output/regression/StackedEnsemble_BestOfFamily_1_AutoML_1_20230711_234239"
     final_data_with_predictions = predict_with_models(final_data_h2o, regression_model_path, classification_model_path)
 
     # Select only the necessary columns for the final output
