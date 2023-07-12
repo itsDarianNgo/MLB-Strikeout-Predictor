@@ -308,7 +308,7 @@ def generate_features(data):
 
 def drop_unnecessary_columns(data):
     """Drop unnecessary columns from the DataFrame."""
-    columns_to_drop = ["home_score", "away_score", "winner", "venue", "home_team", "away_team"]
+    columns_to_drop = ["home_score", "away_score", "winner", "venue"]
     data.drop(columns=columns_to_drop, inplace=True)
     return data
 
