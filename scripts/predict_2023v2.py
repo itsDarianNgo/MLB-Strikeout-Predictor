@@ -71,8 +71,8 @@ def main():
     final_data_h2o["Std_SO_vs_Team"] = final_data_h2o["Std_SO_vs_Team"].asnumeric()
 
     # Paths to the saved models (update these paths as necessary)
-    classification_model_path = "./model_output/classification/StackedEnsemble_BestOfFamily_1_AutoML_5_20230712_12613"
-    regression_model_path = "./model_output/regression/StackedEnsemble_BestOfFamily_1_AutoML_4_20230712_12010"
+    classification_model_path = "./model_output/classification/StackedEnsemble_BestOfFamily_1_AutoML_8_20230712_55733"
+    regression_model_path = "./model_output/regression/StackedEnsemble_BestOfFamily_1_AutoML_7_20230712_54831"
     final_data_with_predictions = predict_with_models(final_data_h2o, regression_model_path, classification_model_path)
 
     # Select only the necessary columns for the final output

@@ -125,10 +125,10 @@ def generate_lagged_features(player_data):
         player_data[f"{column}_lag"] = player_data[column].shift()
 
     # Add FIP to the lagged columns
-    player_data["FIP_lag"] = player_data["FIP"].shift()
+    # player_data["FIP_lag"] = player_data["FIP"].shift()
 
     # Drop original columns but keep SO_y, the target variable
-    columns_to_drop = [col for col in LAG_COLUMNS if col != "SO_y"] + ["FIP"]
+    columns_to_drop = [col for col in LAG_COLUMNS if col != "SO_y"]
     player_data.drop(columns=columns_to_drop, inplace=True)
 
     # Fill NaN values with 0
@@ -263,6 +263,47 @@ def add_home_away_indicator(data):
     return data
 
 
+def generate_avg_SO_at_venue(player_data):
+    """Generate average strikeouts at each venue for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+
+    # Create an expanding window mean, grouping by the venue
+    player_data["Avg_SO_at_venue"] = player_data.groupby("venue")["SO_y"].expanding(min_periods=1).mean().reset_index(level=0, drop=True)
+
+    # Shift the data to avoid data leakage
+    player_data["Avg_SO_at_venue"] = player_data.groupby("venue")["Avg_SO_at_venue"].shift()
+
+    return player_data
+
+
+def generate_change_in_strikeouts(player_data):
+    """Generate 'Change in Strikeouts' feature for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+    player_data["Change_in_Strikeouts"] = player_data["SO_y"].diff().shift()
+    return player_data
+
+
+def generate_strikeout_volatility(player_data, window=5):
+    """Generate 'Strikeout Volatility' feature for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+    player_data["Strikeout_Volatility"] = player_data["SO_y"].rolling(window=window).std().shift()
+    return player_data
+
+
+def generate_rest_effect(player_data):
+    """Generate 'Rest Effect' feature for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+    player_data["Rest_Effect"] = player_data["SO_y"].diff().shift(2)
+    return player_data
+
+
+def generate_cumulative_pitch_count(player_data, window=5):
+    """Generate 'Cumulative Pitch Count' feature for a single player."""
+    player_data.sort_values(by="Date", inplace=True)
+    player_data["Cumulative_Pitch_Count"] = player_data["Pit_y"].rolling(window=window).sum().shift()
+    return player_data
+
+
 def generate_features(data):
     """Generate features for the dataset."""
 
@@ -282,10 +323,14 @@ def generate_features(data):
         player_data = generate_pitcher_performance_against_teams(player_data)
         player_data = generate_pitcher_fatigue(player_data)
         player_data = generate_KBB_ratio(player_data)
-        player_data = calculate_fip(player_data)
         player_data = calculate_pitcher_fatigue(player_data)
         player_data = calculate_pitcher_momentum(player_data)
         player_data = add_home_away_indicator(player_data)
+        player_data = generate_avg_SO_at_venue(player_data)
+        player_data = generate_change_in_strikeouts(player_data)
+        player_data = generate_strikeout_volatility(player_data)
+        player_data = generate_rest_effect(player_data)
+        player_data = generate_cumulative_pitch_count(player_data)
         player_data = generate_lagged_features(player_data)
         player_data = calculate_cumulative_average_strikeouts(player_data)
         player_data = calculate_recent_performance_trend(player_data, games=5)
@@ -308,7 +353,7 @@ def generate_features(data):
 
 def drop_unnecessary_columns(data):
     """Drop unnecessary columns from the DataFrame."""
-    columns_to_drop = ["home_score", "away_score", "winner", "venue"]
+    columns_to_drop = ["home_score", "away_score", "winner", "home_team", "away_team"]
     data.drop(columns=columns_to_drop, inplace=True)
     return data
 
