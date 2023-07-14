@@ -59,6 +59,11 @@ class LSTM(nn.Module):
 # Load data
 df = pd.read_csv("./data/final_data_with_features.csv")
 
+# Load unseen data
+unseen_df = pd.read_csv("./data/final_data_with_features_2023.csv")
+# Combine the player names from the training data and unseen data
+all_players = pd.concat([df['Player'], unseen_df['Player']]).unique()
+
 # Split the 'Date' column into 'Year', 'Month', and 'Day' columns
 df["Date"] = pd.to_datetime(df["Date"])
 df["Year"] = df["Date"].dt.year
@@ -71,10 +76,10 @@ df.sort_values("Date", inplace=True)
 # Preserve the 'Player' column before one-hot encoding
 players = df["Player"]
 
-# Define an one hot encoder object
-encoder = OneHotEncoder(sparse=False)
+# Define a one-hot encoder object with all players as categories for the 'Player' feature
+encoder = OneHotEncoder(categories=[all_players], sparse=False)
 
-# Apply one hot encoding to the specified columns
+# Apply one-hot encoding to the specified columns
 encoded_columns = encoder.fit_transform(df[["Team", "Player", "venue", "Opposing_Team", "home_away"]])
 encoded_df = pd.DataFrame(encoded_columns, columns=encoder.get_feature_names_out(["Team", "Player", "venue", "Opposing_Team", "home_away"]))
 
@@ -93,6 +98,7 @@ window_size = 10
 sequence_list = create_sequences(df_with_players, window_size)
 for sequence in sequence_list:
     sequence.drop(columns=["Player"], inplace=True)
+
 
 # Split data into train/valid/test sets
 train_ratio = 0.7
