@@ -22,7 +22,7 @@ class StrikeoutDataset(Dataset):
 
     def __getitem__(self, idx):
         sequence = self.sequences[idx]
-        features_df = sequence.drop(columns=["SO_y", "Player"])
+        features_df = sequence.drop(columns=["SO_y"])  # Drop 'Player' column from sequences here
         features = torch.tensor(features_df.values[:-1], dtype=torch.float32).to(device)  # Move features to device
         target = torch.tensor(sequence["SO_y"].values[-1], dtype=torch.float32).to(device)  # Move target to device
         return features, target
@@ -84,26 +84,27 @@ df = df.drop(columns=["Date", "Team", "Player", "venue", "Opposing_Team", "home_
 # Concatenate the original dataframe with the one-hot encoded dataframe
 df = pd.concat([df, encoded_df], axis=1)
 
-# Add the preserved 'Player' column back to the DataFrame
-df["Player"] = players
+# Create a separate DataFrame for the purpose of creating sequences
+df_with_players = df.copy()
+df_with_players["Player"] = players
+
+# Create sequences using df_with_players and drop 'Player' column from each sequence
+window_size = 10
+sequence_list = create_sequences(df_with_players, window_size)
+for sequence in sequence_list:
+    sequence.drop(columns=["Player"], inplace=True)
 
 # Split data into train/valid/test sets
 train_ratio = 0.7
 valid_ratio = 0.15
 test_ratio = 0.15
-train_end = int(train_ratio * len(df))
-valid_end = int((train_ratio + valid_ratio) * len(df))
-train_df = df[:train_end]
-valid_df = df[train_end:valid_end]
-test_df = df[valid_end:]
+train_end = int(train_ratio * len(sequence_list))
+valid_end = int((train_ratio + valid_ratio) * len(sequence_list))
+train_sequences = sequence_list[:train_end]
+valid_sequences = sequence_list[train_end:valid_end]
+test_sequences = sequence_list[valid_end:]
 
-# Create sequences of data
-window_size = 10
-train_sequences = create_sequences(train_df, window_size)
-valid_sequences = create_sequences(valid_df, window_size)
-test_sequences = create_sequences(test_df, window_size)
-
-# Convert dataframes to tensors
+# Convert sequence list to tensors
 train_dataset = StrikeoutDataset(train_sequences)
 valid_dataset = StrikeoutDataset(valid_sequences)
 test_dataset = StrikeoutDataset(test_sequences)
@@ -115,7 +116,7 @@ valid_loader = DataLoader(valid_dataset, batch_size=batch_size)
 test_loader = DataLoader(test_dataset, batch_size=batch_size)
 
 # Set baseline model parameters
-input_size = train_df.shape[1] - 2  # Minus 2 because we removed the 'SO_y' and 'Player' columns
+input_size = train_sequences[0].shape[1] - 1  # Minus 1 because we removed the 'SO_y' column
 hidden_size = 50
 num_layers = 1
 output_size = 1
@@ -158,7 +159,6 @@ for i, (features, targets) in enumerate(valid_loader):
     print(f"Epoch {epoch+1}/{num_epochs}, Validation Loss: {np.mean(valid_losses):.4f}")
 
 # Optimize model architecture
-# In this case, we increase the number of hidden units and add another layer.
 hidden_size = 100
 num_layers = 2
 model = LSTM(input_size, hidden_size, num_layers, output_size)
@@ -167,7 +167,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # Perform hyperparameter tuning
 # We use grid search to find the best learning rate and number of epochs.
-param_grid = {"lr": [0.1, 0.01, 0.001], "num_epochs": [10, 20, 30]}
+param_grid = {"lr": [0.1], "num_epochs": [10]}
+# param_grid = {"lr": [0.1, 0.01, 0.001], "num_epochs": [10, 20, 30]}
 best_params = None
 best_loss = np.inf
 for params in ParameterGrid(param_grid):
@@ -233,17 +234,6 @@ for i, (features, targets) in enumerate(test_loader):
 
 print(f"Final Model Test Loss: {np.mean(test_losses):.4f}")
 
-
-# Compare the model's predictions with the betting lines
-model.eval()
-predictions = model(
-    torch.tensor(test_df.drop(columns=["SO_y", "SO_Prop"]).values, dtype=torch.float32).to(device)
-)  # Move data to device for prediction
-predictions = predictions.detach().cpu().numpy()  # Move predictions back to CPU
-betting_lines = test_df["SO_Prop"].values
-comparison_df = pd.DataFrame({"predictions": predictions, "SO_Prop": betting_lines})
-comparison_df["difference"] = comparison_df["predictions"] - comparison_df["SO_Prop"]
-print(comparison_df)
-
 # Save the final model
+model = model.to("cpu")  # Ensure the model is on CPU before saving
 torch.save(model.state_dict(), "./data/PyTorch_final_model.pth")
