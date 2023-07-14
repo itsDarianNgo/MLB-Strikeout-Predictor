@@ -12,7 +12,7 @@ print(tf.__version__)
 print(keras.__version__)
 
 # Load the dataset
-data = pd.read_csv("./data/final_data_with_features.csv")
+data = pd.read_csv("./data/final_data_with_features_2023.csv")
 
 # Convert the 'date' column to a datetime format
 data["Date"] = pd.to_datetime(data["Date"])
