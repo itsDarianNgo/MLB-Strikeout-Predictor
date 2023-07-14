@@ -61,6 +61,7 @@ df = pd.read_csv("./data/final_data_with_features.csv")
 
 # Load unseen data
 unseen_df = pd.read_csv("./data/final_data_with_features_2023.csv")
+
 # Combine the player names from the training data and unseen data
 all_players = pd.concat([df['Player'], unseen_df['Player']]).unique()
 
@@ -76,18 +77,25 @@ df.sort_values("Date", inplace=True)
 # Preserve the 'Player' column before one-hot encoding
 players = df["Player"]
 
-# Define a one-hot encoder object with all players as categories for the 'Player' feature
-encoder = OneHotEncoder(categories=[all_players], sparse=False)
+# Define a one-hot encoder object for the 'Player' feature with all players as categories
+player_encoder = OneHotEncoder(categories=[all_players], sparse=False)
 
-# Apply one-hot encoding to the specified columns
-encoded_columns = encoder.fit_transform(df[["Team", "Player", "venue", "Opposing_Team", "home_away"]])
-encoded_df = pd.DataFrame(encoded_columns, columns=encoder.get_feature_names_out(["Team", "Player", "venue", "Opposing_Team", "home_away"]))
+# Apply one hot encoding to the 'Player' column
+player_encoded_columns = player_encoder.fit_transform(df[["Player"]])
+player_encoded_df = pd.DataFrame(player_encoded_columns, columns=player_encoder.get_feature_names_out(["Player"]))
+
+# Define a one-hot encoder object for the other categorical features
+other_encoder = OneHotEncoder(sparse=False)
+
+# Apply one hot encoding to the other categorical columns
+other_encoded_columns = other_encoder.fit_transform(df[["Team", "venue", "Opposing_Team", "home_away"]])
+other_encoded_df = pd.DataFrame(other_encoded_columns, columns=other_encoder.get_feature_names_out(["Team", "venue", "Opposing_Team", "home_away"]))
 
 # Drop the original 'Date', 'Team', 'Player', 'venue', 'Opposing_Team', 'home_away' columns
 df = df.drop(columns=["Date", "Team", "Player", "venue", "Opposing_Team", "home_away", "GameID"])
 
-# Concatenate the original dataframe with the one-hot encoded dataframe
-df = pd.concat([df, encoded_df], axis=1)
+# Concatenate the original dataframe with the one-hot encoded dataframes
+df = pd.concat([df, player_encoded_df, other_encoded_df], axis=1)
 
 # Create a separate DataFrame for the purpose of creating sequences
 df_with_players = df.copy()
@@ -98,7 +106,6 @@ window_size = 10
 sequence_list = create_sequences(df_with_players, window_size)
 for sequence in sequence_list:
     sequence.drop(columns=["Player"], inplace=True)
-
 
 # Split data into train/valid/test sets
 train_ratio = 0.7
@@ -173,7 +180,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # Perform hyperparameter tuning
 # We use grid search to find the best learning rate and number of epochs.
-param_grid = {"lr": [0.1], "num_epochs": [10]}
+param_grid = {"lr": [0.1], "num_epochs": [5]}
 # param_grid = {"lr": [0.1, 0.01, 0.001], "num_epochs": [10, 20, 30]}
 best_params = None
 best_loss = np.inf
