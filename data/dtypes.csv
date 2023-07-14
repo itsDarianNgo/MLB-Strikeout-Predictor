@@ -1,0 +1,622 @@
+,dtype
+Avg_SO_per_year,float64
+Avg_SO_Rolling_10,float64
+Avg_SO_Rolling_5,float64
+Avg_SO_Rolling_3,float64
+Avg_StS_Rolling,float64
+Avg_Str_Rolling,float64
+Avg_SO_vs_Team,float64
+Rolling_Avg_SO_vs_Team,float64
+Std_SO_vs_Team,float64
+Days_Since_Last_Game,float64
+K/BB_lag,float64
+pitcher_fatigue,int64
+pitcher_momentum,float64
+Avg_SO_at_venue,float64
+Change_in_Strikeouts,float64
+Strikeout_Volatility,float64
+Rest_Effect,float64
+Cumulative_Pitch_Count,float64
+SO_y_lag,float64
+AB_lag,float64
+R_x_lag,float64
+H_x_lag,float64
+RBI_lag,float64
+BB_x_lag,float64
+SO_x_lag,float64
+PA_lag,float64
+BA_lag,float64
+OBP_lag,float64
+SLG_lag,float64
+OPS_lag,float64
+Pit_x_lag,float64
+Str_x_lag,float64
+WPA_x_lag,float64
+WPA+_lag,float64
+acLI_x_lag,float64
+PO_lag,int64
+A_lag,float64
+IP_lag,float64
+H_y_lag,float64
+R_y_lag,float64
+ER_lag,float64
+BB_y_lag,float64
+HR_lag,float64
+ERA_lag,float64
+BF_lag,float64
+Pit_y_lag,float64
+Str_y_lag,float64
+Ctct_lag,float64
+StS_lag,float64
+StL_lag,float64
+GB_lag,float64
+FB_lag,float64
+LD_lag,float64
+Unk_lag,float64
+GSc_lag,float64
+IR_lag,float64
+IS_lag,float64
+WPA_y_lag,float64
+acLI_y_lag,float64
+Recent_Performance_Trend,float64
+Year,int32
+Month,int32
+Day,int32
+Team_Arizona Diamondbacks,float64
+Team_Atlanta Braves,float64
+Team_Baltimore Orioles,float64
+Team_Boston Red Sox,float64
+Team_Chicago Cubs,float64
+Team_Chicago White Sox,float64
+Team_Cincinnati Reds,float64
+Team_Cleveland Guardians,float64
+Team_Colorado Rockies,float64
+Team_Detroit Tigers,float64
+Team_Houston Astros,float64
+Team_Kansas City Royals,float64
+Team_Los Angeles Angels,float64
+Team_Los Angeles Dodgers,float64
+Team_Miami Marlins,float64
+Team_Milwaukee Brewers,float64
+Team_Minnesota Twins,float64
+Team_New York Mets,float64
+Team_New York Yankees,float64
+Team_Oakland Athletics,float64
+Team_Philadelphia Phillies,float64
+Team_Pittsburgh Pirates,float64
+Team_San Diego Padres,float64
+Team_San Francisco Giants,float64
+Team_Seattle Mariners,float64
+Team_St. Louis Cardinals,float64
+Team_Tampa Bay Rays,float64
+Team_Texas Rangers,float64
+Team_Toronto Blue Jays,float64
+Team_Washington Nationals,float64
+Player_AJ Smith-Shawver,float64
+Player_Aaron Ashby,float64
+Player_Aaron Civale,float64
+Player_Aaron Nola,float64
+Player_Aaron Sanchez,float64
+Player_Adam Oller,float64
+Player_Adam Wainwright,float64
+Player_Adrian Houser,float64
+Player_Adrian Martinez,float64
+Player_Adrian Sampson,float64
+Player_Alec Mills,float64
+Player_Alek Manoah,float64
+Player_Alex Cobb,float64
+Player_Alex Faedo,float64
+Player_Alex Wood,float64
+Player_Alex Young,float64
+Player_Andre Pallante,float64
+Player_Andrew Abbott,float64
+Player_Andrew Bellatti,float64
+Player_Andrew Heaney,float64
+Player_Andrew Wantz,float64
+Player_Angel Zerpa,float64
+Player_Anibal Sanchez,float64
+Player_Anthony Banda,float64
+Player_Anthony DeSclafani,float64
+Player_Antonio Senzatela,float64
+Player_Austin Davis,float64
+Player_Austin Gomber,float64
+Player_Austin Pruitt,float64
+Player_Austin Voth,float64
+Player_Bailey Falter,float64
+Player_Bailey Ober,float64
+Player_Beau Brieske,float64
+Player_Ben Lively,float64
+Player_Blake Snell,float64
+Player_Bobby Miller,float64
+Player_Brad Keller,float64
+Player_Brady Singer,float64
+Player_Brandon Bielak,float64
+Player_Brandon Pfaadt,float64
+Player_Brandon Williamson,float64
+Player_Brandon Woodruff,float64
+Player_Braxton Garrett,float64
+Player_Brayan Bello,float64
+Player_Brett Martin,float64
+Player_Bruce Zimmermann,float64
+Player_Brusdar Graterol,float64
+Player_Bryan Baker,float64
+Player_Bryan Garcia,float64
+Player_Bryan Hoeing,float64
+Player_Bryan Shaw,float64
+Player_Bryan Woo,float64
+Player_Bryce Elder,float64
+Player_Bryce Miller,float64
+Player_Bryse Wilson,float64
+Player_Cade Cavalli,float64
+Player_Cal Quantrill,float64
+Player_Caleb Ferguson,float64
+Player_Caleb Kilian,float64
+Player_Caleb Smith,float64
+Player_Calvin Faucher,float64
+Player_Carlos Carrasco,float64
+Player_Carlos Hernandez,float64
+Player_Carlos Hernández,float64
+Player_Carlos Rodon,float64
+Player_Casey Mize,float64
+Player_Chad Kuhl,float64
+Player_Charlie Morton,float64
+Player_Chase Anderson,float64
+Player_Chase Silseth,float64
+Player_Chi Chi Gonzalez,float64
+Player_Chris Archer,float64
+Player_Chris Bassitt,float64
+Player_Chris Ellis,float64
+Player_Chris Flexen,float64
+Player_Chris Paddack,float64
+Player_Chris Sale,float64
+Player_Chris Stratton,float64
+Player_Clarke Schmidt,float64
+Player_Clayton Kershaw,float64
+Player_Cody Bradford,float64
+Player_Cody Morris,float64
+Player_Cody Poteet,float64
+Player_Cole Irvin,float64
+Player_Cole Ragans,float64
+Player_Cole Sands,float64
+Player_Colin Rea,float64
+Player_Collin McHugh,float64
+Player_Connor Brogdon,float64
+Player_Connor Overton,float64
+Player_Connor Seabold,float64
+Player_Cooper Criswell,float64
+Player_Corbin Burnes,float64
+Player_Corbin Martin,float64
+Player_Corey Kluber,float64
+Player_Cory Abbott,float64
+Player_Cristian Javier,float64
+Player_Cristopher Sanchez,float64
+Player_Cristopher Sánchez,float64
+Player_DL Hall,float64
+Player_Dakota Hudson,float64
+Player_Dallas Keuchel,float64
+Player_Dane Dunning,float64
+Player_Daniel Castano,float64
+Player_Daniel Lynch,float64
+Player_Daniel Mengden,float64
+Player_Daniel Norris,float64
+Player_Daulton Jefferies,float64
+Player_Dauri Moreta,float64
+Player_David Peterson,float64
+Player_Davis Martin,float64
+Player_Dean Kremer,float64
+Player_Dennis Santana,float64
+Player_Denyi Reyes,float64
+Player_Derek Law,float64
+Player_Devin Smeltzer,float64
+Player_Dillon Peters,float64
+Player_Dinelson Lamet,float64
+Player_Domingo German,float64
+Player_Domingo Germán,float64
+Player_Drew Hutchison,float64
+Player_Drew Rasmussen,float64
+Player_Drew Rucinski,float64
+Player_Drew Smyly,float64
+Player_Drey Jameson,float64
+Player_Duane Underwood Jr.,float64
+Player_Dustin May,float64
+Player_Dylan Bundy,float64
+Player_Dylan Cease,float64
+Player_Dylan Covey,float64
+Player_Dylan Dodd,float64
+Player_Dylan Lee,float64
+Player_Easton McGee,float64
+Player_Eduardo Rodriguez,float64
+Player_Edward Cabrera,float64
+Player_Eli Morgan,float64
+Player_Elieser Hernandez,float64
+Player_Elvin Rodriguez,float64
+Player_Erasmo Ramirez,float64
+Player_Eric Lauer,float64
+Player_Erick Fedde,float64
+Player_Erik Swanson,float64
+Player_Ethan Small,float64
+Player_Eury Pérez,float64
+Player_Evan Lee,float64
+Player_Fernando Cruz,float64
+Player_Framber Valdez,float64
+Player_Frankie Montas,float64
+Player_Freddy Peralta,float64
+Player_Gabe Speier,float64
+Player_Garrett Hill,float64
+Player_Garrett Richards,float64
+Player_Garrett Whitlock,float64
+Player_Gavin Stone,float64
+Player_George Kirby,float64
+Player_German Marquez,float64
+Player_Germán Márquez,float64
+Player_Gerrit Cole,float64
+Player_Glenn Otto,float64
+Player_Graham Ashcraft,float64
+Player_Grayson Rodriguez,float64
+Player_Griffin Canning,float64
+Player_Hayden Wesneski,float64
+Player_Hogan Harris,float64
+Player_Huascar Ynoa,float64
+Player_Humberto Castellanos,float64
+Player_Hunter Brown,float64
+Player_Hunter Gaddis,float64
+Player_Hunter Greene,float64
+Player_Hyun Jin Ryu,float64
+Player_Ian Anderson,float64
+Player_J.P. Feyereisen,float64
+Player_J.P. France,float64
+Player_JP Sears,float64
+Player_JT Brubaker,float64
+Player_JT Chargois,float64
+Player_Jack Flaherty,float64
+Player_Jackson Tetreault,float64
+Player_Jacob deGrom,float64
+Player_Jaime Barria,float64
+Player_Jake Irvin,float64
+Player_Jake Odorizzi,float64
+Player_Jake Woodford,float64
+Player_Jakob Junis,float64
+Player_Jalen Beeks,float64
+Player_James Kaprielian,float64
+Player_James Paxton,float64
+Player_Jameson Taillon,float64
+Player_Janson Junk,float64
+Player_Jared Koenig,float64
+Player_Jared Shuster,float64
+Player_Jason Alexander,float64
+Player_Javier Assad,float64
+Player_Javy Guerra,float64
+Player_Jeff Hoffman,float64
+Player_Jeffrey Springs,float64
+Player_Jerad Eickhoff,float64
+Player_Jesse Chavez,float64
+Player_Jesse Scholtens,float64
+Player_Jesus Luzardo,float64
+Player_Jesus Tinoco,float64
+Player_Jesús Luzardo,float64
+Player_Jhonathan Diaz,float64
+Player_Jhony Brito,float64
+Player_Jimmy Cordero,float64
+Player_Jimmy Herget,float64
+Player_Jimmy Lambert,float64
+Player_Jimmy Yacabonis,float64
+Player_Joan Adon,float64
+Player_Joe Kelly,float64
+Player_Joe Musgrove,float64
+Player_Joe Ryan,float64
+Player_Joey Lucchesi,float64
+Player_Joey Wentz,float64
+Player_Johan Oviedo,float64
+Player_John Brebbia,float64
+Player_John Means,float64
+Player_Johnny Cueto,float64
+Player_Jon Gray,float64
+Player_Jonathan Heasley,float64
+Player_Jordan Hicks,float64
+Player_Jordan Lyles,float64
+Player_Jordan Montgomery,float64
+Player_Jose Berrios,float64
+Player_Jose Quintana,float64
+Player_Jose Suarez,float64
+Player_Jose Urena,float64
+Player_Jose Urquidy,float64
+Player_Josh Fleming,float64
+Player_Josh Rogers,float64
+Player_Josh Sborz,float64
+Player_Josh Staumont,float64
+Player_Josh Taylor,float64
+Player_Josh Winckowski,float64
+Player_Josh Winder,float64
+Player_Josiah Gray,float64
+Player_José Berríos,float64
+Player_José Butto,float64
+Player_José Suarez,float64
+Player_José Ureña,float64
+Player_José Urquidy,float64
+Player_Julian Merryweather,float64
+Player_Julio Teheran,float64
+Player_Julio Urias,float64
+Player_Julio Urías,float64
+Player_Justin Dunn,float64
+Player_Justin Steele,float64
+Player_Justin Verlander,float64
+Player_Karl Kauffmann,float64
+Player_Keegan Akin,float64
+Player_Keegan Thompson,float64
+Player_Ken Waldichuk,float64
+Player_Kenny Rosenberg,float64
+Player_Kenta Maeda,float64
+Player_Kevin Gausman,float64
+Player_Kirk McCarty,float64
+Player_Kodai Senga,float64
+Player_Kohei Arihara,float64
+Player_Konnor Pilkington,float64
+Player_Kris Bubic,float64
+Player_Kutter Crawford,float64
+Player_Kyle Bradish,float64
+Player_Kyle Freeland,float64
+Player_Kyle Gibson,float64
+Player_Kyle Hendricks,float64
+Player_Kyle Muller,float64
+Player_Kyle Nelson,float64
+Player_Kyle Wright,float64
+Player_Lance Lynn,float64
+Player_Lance McCullers Jr.,float64
+Player_Levi Stoudt,float64
+Player_Logan Allen,float64
+Player_Logan Gilbert,float64
+Player_Logan Webb,float64
+Player_Louie Varland,float64
+Player_Lucas Giolito,float64
+Player_Luis Castillo,float64
+Player_Luis Cessa,float64
+Player_Luis Garcia,float64
+Player_Luis Medina,float64
+Player_Luis Ortiz,float64
+Player_Luis Patino,float64
+Player_Luis Severino,float64
+Player_Luke Farrell,float64
+Player_Luke Weaver,float64
+Player_MacKenzie Gore,float64
+Player_Madison Bumgarner,float64
+Player_Marco Gonzales,float64
+Player_Marcus Stroman,float64
+Player_Mark Leiter Jr.,float64
+Player_Martin Perez,float64
+Player_Martín Pérez,float64
+Player_Mason Englert,float64
+Player_Mason Miller,float64
+Player_Matt Barnes,float64
+Player_Matt Brash,float64
+Player_Matt Bush,float64
+Player_Matt Dermody,float64
+Player_Matt Manning,float64
+Player_Matt Strahm,float64
+Player_Matt Swarmer,float64
+Player_Matt Wisler,float64
+Player_Matthew Boyd,float64
+Player_Matthew Liberatore,float64
+Player_Mauricio Llovera,float64
+Player_Max Castillo,float64
+Player_Max Fried,float64
+Player_Max Meyer,float64
+Player_Max Scherzer,float64
+Player_Merrill Kelly,float64
+Player_Michael Grove,float64
+Player_Michael Kopech,float64
+Player_Michael Lorenzen,float64
+Player_Michael Pineda,float64
+Player_Michael Soroka,float64
+Player_Michael Wacha,float64
+Player_Miguel Yajure,float64
+Player_Mike Baumann,float64
+Player_Mike Clevinger,float64
+Player_Mike Mayers,float64
+Player_Mike Minor,float64
+Player_Miles Mikolas,float64
+Player_Mitch Keller,float64
+Player_Mitch White,float64
+Player_Nabil Crismatt,float64
+Player_Nathan Eovaldi,float64
+Player_Nestor Cortes,float64
+Player_Nick Lodolo,float64
+Player_Nick Martinez,float64
+Player_Nick Neidert,float64
+Player_Nick Nelson,float64
+Player_Nick Pivetta,float64
+Player_Noah Davis,float64
+Player_Noah Syndergaard,float64
+Player_Osvaldo Bido,float64
+Player_Pablo Lopez,float64
+Player_Pablo López,float64
+Player_Packy Naughton,float64
+Player_Paolo Espino,float64
+Player_Patrick Corbin,float64
+Player_Patrick Sandoval,float64
+Player_Paul Blackburn,float64
+Player_Penn Murfee,float64
+Player_Peyton Battenfield,float64
+Player_Randy Vásquez,float64
+Player_Ranger Suarez,float64
+Player_Ranger Suárez,float64
+Player_Reese Olson,float64
+Player_Reid Detmers,float64
+Player_Reiss Knehr,float64
+Player_Reiver Sanmartin,float64
+Player_Reynaldo Lopez,float64
+Player_Rich Hill,float64
+Player_Richard Bleier,float64
+Player_Roansy Contreras,float64
+Player_Robbie Ray,float64
+Player_Robert Dugger,float64
+Player_Ronel Blanco,float64
+Player_Rony Garcia,float64
+Player_Ross Stripling,float64
+Player_Ryan Feltner,float64
+Player_Ryan Pepiot,float64
+Player_Ryan Weathers,float64
+Player_Ryan Yarbrough,float64
+Player_Ryne Nelson,float64
+Player_Sam Long,float64
+Player_Sam Moll,float64
+Player_Sandy Alcantara,float64
+Player_Scott Alexander,float64
+Player_Scott Effross,float64
+Player_Sean Manaea,float64
+Player_Sean Newcomb,float64
+Player_Seth Lugo,float64
+Player_Shane Baz,float64
+Player_Shane Bieber,float64
+Player_Shane McClanahan,float64
+Player_Shawn Armstrong,float64
+Player_Shintaro Fujinami,float64
+Player_Shohei Ohtani,float64
+Player_Sonny Gray,float64
+Player_Spencer Howard,float64
+Player_Spencer Strider,float64
+Player_Spencer Turnbull,float64
+Player_Spenser Watkins,float64
+Player_Stephen Strasburg,float64
+Player_Steven Matz,float64
+Player_Steven Wilson,float64
+Player_T.J. Zeuch,float64
+Player_Taijuan Walker,float64
+Player_Taj Bradley,float64
+Player_Tanner Bibee,float64
+Player_Tanner Houck,float64
+Player_Tarik Skubal,float64
+Player_Taylor Clarke,float64
+Player_Taylor Hearn,float64
+Player_Thomas Hatch,float64
+Player_Thomas Szapucki,float64
+Player_Tommy Henry,float64
+Player_Tommy Milone,float64
+Player_Tommy Nance,float64
+Player_Tommy Romero,float64
+Player_Tony Gonsolin,float64
+Player_Touki Toussaint,float64
+Player_Trevor Kelley,float64
+Player_Trevor Richards,float64
+Player_Trevor Rogers,float64
+Player_Trevor Williams,float64
+Player_Triston McKenzie,float64
+Player_Tucker Davidson,float64
+Player_Ty Blach,float64
+Player_Tyler Alexander,float64
+Player_Tyler Anderson,float64
+Player_Tyler Beede,float64
+Player_Tyler Gilbert,float64
+Player_Tyler Glasnow,float64
+Player_Tyler Holton,float64
+Player_Tyler Mahle,float64
+Player_Tyler Wells,float64
+Player_Tylor Megill,float64
+Player_Tyson Miller,float64
+Player_Victor González,float64
+Player_Vince Velasquez,float64
+Player_Vladimir Gutiérrez,float64
+Player_Wade Miley,float64
+Player_Walker Buehler,float64
+Player_Wil Crowe,float64
+Player_Will Vest,float64
+Player_Wily Peralta,float64
+Player_Xzavion Curry,float64
+Player_Yonny Chirinos,float64
+Player_Yu Darvish,float64
+Player_Yusei Kikuchi,float64
+Player_Zac Gallen,float64
+Player_Zach Davies,float64
+Player_Zach Eflin,float64
+Player_Zach Logue,float64
+Player_Zach Plesac,float64
+Player_Zach Thompson,float64
+Player_Zack Greinke,float64
+Player_Zack Thompson,float64
+Player_Zack Wheeler,float64
+venue_2:20,float64
+venue_2:23,float64
+venue_2:28,float64
+venue_2:36,float64
+venue_2:40,float64
+venue_2:41,float64
+venue_2:43,float64
+venue_2:46,float64
+venue_2:49,float64
+venue_2:53,float64
+venue_2:54,float64
+venue_2:56,float64
+venue_2:58,float64
+venue_3:00,float64
+venue_3:09,float64
+venue_3:12,float64
+venue_3:15,float64
+venue_3:17,float64
+venue_3:23,float64
+venue_3:33,float64
+venue_4:03,float64
+venue_Alfredo Harp Helú Stadium,float64
+venue_American Family Field,float64
+venue_Angel Stadium of Anaheim,float64
+venue_Busch Stadium III,float64
+venue_Chase Field,float64
+venue_Citi Field,float64
+venue_Citizens Bank Park,float64
+venue_Comerica Park,float64
+venue_Coors Field,float64
+venue_Dodger Stadium,float64
+venue_Fenway Park,float64
+venue_Field of Dreams,float64
+venue_Globe Life Field,float64
+venue_Great American Ball Park,float64
+venue_Guaranteed Rate Field,float64
+venue_Kauffman Stadium,float64
+venue_Minute Maid Park,float64
+venue_Muncy Bank Ballpark,float64
+venue_Nationals Park,float64
+venue_Oracle Park,float64
+venue_Oriole Park at Camden Yards,float64
+venue_PNC Park,float64
+venue_Petco Park,float64
+venue_Progressive Field,float64
+venue_RingCentral Coliseum,float64
+venue_Rogers Centre,float64
+venue_T-Mobile Park,float64
+venue_Target Field,float64
+venue_Tropicana Field,float64
+venue_Truist Park,float64
+venue_Wrigley Field,float64
+venue_Yankee Stadium III,float64
+venue_loanDepot park,float64
+Opposing_Team_Arizona Diamondbacks,float64
+Opposing_Team_Atlanta Braves,float64
+Opposing_Team_Baltimore Orioles,float64
+Opposing_Team_Boston Red Sox,float64
+Opposing_Team_Chicago Cubs,float64
+Opposing_Team_Chicago White Sox,float64
+Opposing_Team_Cincinnati Reds,float64
+Opposing_Team_Cleveland Guardians,float64
+Opposing_Team_Colorado Rockies,float64
+Opposing_Team_Detroit Tigers,float64
+Opposing_Team_Houston Astros,float64
+Opposing_Team_Kansas City Royals,float64
+Opposing_Team_Los Angeles Angels,float64
+Opposing_Team_Los Angeles Dodgers,float64
+Opposing_Team_Miami Marlins,float64
+Opposing_Team_Milwaukee Brewers,float64
+Opposing_Team_Minnesota Twins,float64
+Opposing_Team_New York Mets,float64
+Opposing_Team_New York Yankees,float64
+Opposing_Team_Oakland Athletics,float64
+Opposing_Team_Philadelphia Phillies,float64
+Opposing_Team_Pittsburgh Pirates,float64
+Opposing_Team_San Diego Padres,float64
+Opposing_Team_San Francisco Giants,float64
+Opposing_Team_Seattle Mariners,float64
+Opposing_Team_St. Louis Cardinals,float64
+Opposing_Team_Tampa Bay Rays,float64
+Opposing_Team_Texas Rangers,float64
+Opposing_Team_Toronto Blue Jays,float64
+Opposing_Team_Washington Nationals,float64
+home_away_away,float64
+home_away_home,float64
+Player,object
